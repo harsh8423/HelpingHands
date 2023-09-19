@@ -1,4 +1,4 @@
-import Home from "./screens/home";
+import Home from "./screens/Home";
 import Login from "./screens/Login";
 import ProfileDetail from "./screens/ProfileDetail";
 import MobileOTP from "./screens/MobileOTP";
