@@ -1,5 +1,5 @@
 import React, { useState, useContext, useEffect } from "react";
-import ContextApi from "../components/ContextApi";
+import ContextApi from "../ApiAndComponent/ContextApi";
 import { toast, Toaster } from "react-hot-toast";
 
 export default function TeamBulletin(props) {

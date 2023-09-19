@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
-import UserNavbar from "../components/UserNavbar";
-import ContextApi from "../components/ContextApi";
+import UserNavbar from "../ApiAndComponent/UserNavbar";
+import ContextApi from "../ApiAndComponent/ContextApi";
 import userIcon from "../images/user.png";
 import resumeIcon from "../images/icons8-resume-64.png";
 import webIcon from "../images/icons8-website-94.png";

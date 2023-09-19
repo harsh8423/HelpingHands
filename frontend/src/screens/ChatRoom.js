@@ -1,6 +1,6 @@
 import React, { useContext, useState, useEffect, useRef } from "react";
-import ContextApi from "../components/ContextApi";
-import UserNavbar from "../components/UserNavbar";
+import ContextApi from "../ApiAndComponent/ContextApi";
+import UserNavbar from "../ApiAndComponent/UserNavbar";
 import { useLocation } from "react-router-dom";
 import userIcon from "../images/user1.png";
 import "../css/LoginCss.css";

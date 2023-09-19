@@ -14,7 +14,10 @@ export default function Memos(props) {
   }, [contract]);
   return (
     <div>
-      <p style={{ textAlign: "center", marginTop: "20px" }}>Transactions</p>
+<div className="container">
+  <div className="roe">
+    <p style={{ textAlign: "center", marginTop: "20px", fontWeight:"bold", fontSize:'20px' }}>Project Transactions</p>
+    <div className="col-12">
       {memos?.map((memo) => {
         return (
           <div
@@ -27,6 +30,21 @@ export default function Memos(props) {
                 marginBottom: "10px",
               }}
             >
+              <thead
+              style={{
+                backgroundColor: "#96D4D4",
+                border: "1px solid white",
+                borderCollapse: "collapse",
+                padding: "7px",
+                width: "100px",
+              }}>
+                <tr className='text-center'>
+                  <th>Project Name</th>
+                  <th>TimeStamp</th>
+                  <th>User ID</th>
+                  <th>Transaction ID</th>
+                </tr>
+              </thead>
               <tbody>
                 <tr>
                   <td
@@ -35,7 +53,7 @@ export default function Memos(props) {
                       border: "1px solid white",
                       borderCollapse: "collapse",
                       padding: "7px",
-                      width: "100px",
+                      width: "250px",
                     }}
                   >
                     {memo.name}
@@ -79,6 +97,9 @@ export default function Memos(props) {
           </div>
         );
       })}
+    </div>
+  </div>
+</div>
     </div>
   )
 }

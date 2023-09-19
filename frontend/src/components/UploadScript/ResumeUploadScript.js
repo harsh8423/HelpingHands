@@ -3,7 +3,7 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 // import pa from "./uploads"
 import "../../css/LoginCss.css"
-import ContextApi from "../../components/ContextApi";
+import ContextApi from "../../ApiAndComponent/ContextApi";
 import { toast, Toaster } from "react-hot-toast";
 
 

@@ -3,7 +3,7 @@ import AchievementUpload from "../components/UploadScript/AchievementUpload";
 import BioUpload from "../components/UploadScript/BioUpload";
 import CertificateUpload from "../components/UploadScript/CertificateUpload";
 import ProjectUploadScript from "../components/UploadScript/ProjectUploadScript";
-import UserNavbar from "../components/UserNavbar"
+import UserNavbar from "../ApiAndComponent/UserNavbar"
 
 export default function BuildProfile() {
   const [pageState, setpageState] = useState("");

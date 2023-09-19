@@ -1,6 +1,6 @@
 import React,{useState,useContext} from 'react'
-import ContextApi from "../components/ContextApi";
-import UserNavbar from "../components/UserNavbar";
+import ContextApi from "../ApiAndComponent/ContextApi";
+import UserNavbar from "../ApiAndComponent/UserNavbar";
 import { toast, Toaster } from "react-hot-toast";
 import "../css/LoginCss.css";
 

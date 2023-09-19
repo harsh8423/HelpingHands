@@ -1,6 +1,6 @@
 import React, { useState, useContext } from 'react'
-import UserNavbar from "../components/UserNavbar"
-import ContextApi from "../components/ContextApi";
+import UserNavbar from "../ApiAndComponent/UserNavbar"
+import ContextApi from "../ApiAndComponent/ContextApi";
 import budgetIcon from "../images/money-bag.png";
 import { useLocation } from "react-router-dom";
 import { toast, Toaster } from "react-hot-toast";

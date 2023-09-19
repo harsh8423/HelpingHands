@@ -3,28 +3,29 @@ import Login from "./screens/Login";
 import ProfileDetail from "./screens/ProfileDetail";
 import MobileOTP from "./screens/MobileOTP";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import ContextStat from "./components/ContetxStat";
+import ContextStat from "./ApiAndComponent/ContetxStat";
 import UserPage from "./screens/UserPage";
 import UserProfilePage from "./screens/UserProfilePage";
 import PostJob from "./components/PostJob";
-import MyContractandProposal from "./screens/MyContractandProposal";
+import MyContractandProposal from "./components/MyContractandProposal";
 import ProjectProposal from "./screens/ProjectProposal";
 import BuildProfile from "./screens/BuildProfile";
 import PublicViewProfilePage from "./screens/PublicViewProfilePage";
-import MyConnects from "./screens/MyConnects";
+import MyConnects from "./teams/MyConnects";
 import ChatRoom from "./screens/ChatRoom";
-import CreateTeam from "./components/CreateTeam";
-import TeamRoom from "./screens/TeamRoom";
+import CreateTeam from "./teams/CreateTeam";
+import TeamRoom from "./teams/TeamRoom";
 import TeamRequests from "./teams/TeamRequests";
 import JobConfirmLetter from "./components/JobConfirmLetter";
-
 function App() {
   return (
     <>
+      {/* Wrapping the entire app with a context provider */}
       <ContextStat>
         <Router>
           <div className="App">
             <Routes>
+              {/* Define routes for different screens/components */}
               <Route exact path="/" element={<Home />} />
               <Route exact path="/Login" element={<Login />} />
               <Route exact path="/ProfileDetail" element={<ProfileDetail />} />
@@ -42,7 +43,6 @@ function App() {
               <Route exact path="/TeamRoom" element={<TeamRoom/>} />
               <Route exact path="/TeamRequests" element={<TeamRequests/>} />
               <Route exact path="/JobConfirmLetter" element={<JobConfirmLetter/>} />
-
             </Routes>
           </div>
         </Router>

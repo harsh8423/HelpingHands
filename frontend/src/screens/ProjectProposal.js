@@ -1,7 +1,7 @@
 import React, { useState, useContext } from "react";
-import ContextApi from "../components/ContextApi";
+import ContextApi from "../ApiAndComponent/ContextApi";
 import { useLocation } from "react-router-dom";
-import UserNavbar from "../components/UserNavbar";
+import UserNavbar from "../ApiAndComponent/UserNavbar";
 import budgetIcon from "../images/money-bag.png";
 
 export default function ProjectProposal() {

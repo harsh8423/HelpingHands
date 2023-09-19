@@ -1,6 +1,6 @@
 import React,{useContext} from 'react'
 import { useNavigate } from "react-router-dom";
-import ContextApi from "../components/ContextApi";
+import ContextApi from "./ContextApi";
 import arrowIcon from "../images/right-arrow.png";
 import contractIcon from "../images/contract.png";
 import myjobIcon from "../images/promotion.png";

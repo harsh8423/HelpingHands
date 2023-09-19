@@ -1,6 +1,6 @@
 import React, { useState, useContext,useEffect } from "react";
-import UserNavbar from "../components/UserNavbar";
-import ContextApi from "../components/ContextApi";
+import UserNavbar from "../ApiAndComponent/UserNavbar";
+import ContextApi from "../ApiAndComponent/ContextApi";
 import profileIcon from "../images/icons8-profile-80.png"
 import { useNavigate } from "react-router-dom";
 import "../css/LoginCss.css"

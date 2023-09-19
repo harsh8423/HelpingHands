@@ -1,33 +1,24 @@
 
 // require("@nomicfoundation/hardhat-toolbox");
-
-// require("dotenv").config();
-// /** @type import('hardhat/config').HardhatUserConfig */
-
-// const GOERLI_URL = process.env.GOERLI_URL;
-// const PRIVATE_KEY = process.env.PRIVATE_KEY;
-// module.exports = {
-//   solidity: "0.8.17",
-//   networks: {
-//     goerli: {
-//       url: GOERLI_URL,
-//       accounts: [PRIVATE_KEY],
-//     },
-//   },
-// };
-
-
+ 
+// Import required Hardhat module
 require("@nomicfoundation/hardhat-toolbox");
 
 /** @type import('hardhat/config').HardhatUserConfig */
 module.exports = {
+  // Specify the Solidity compiler version
   solidity: "0.8.17",
+
+  // Define network configurations
   networks: {
+    // Hardhat network configuration
     hardhat: {
-      chainId: 31337,
+      chainId: 31337, // Chain ID for the Hardhat network
     },
   },
+
+  // Define paths for artifacts (compiled contract files)
   paths: {
-    artifacts: "./frontend/src/artifacts",
+    artifacts: "./frontend/src/artifacts", // Path to store compiled contract artifacts
   },
 };

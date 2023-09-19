@@ -1,5 +1,5 @@
 import React from "react";
-import Navbar from "../components/Navbar";
+import Navbar from "../ApiAndComponent/Navbar";
 import logoIcon from "../images/Screenshot_2023-08-09_143330-transformed-transformed.png";
 
 export default function home() {

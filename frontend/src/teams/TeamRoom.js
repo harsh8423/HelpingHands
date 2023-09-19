@@ -1,16 +1,16 @@
 import React, { useEffect, useState, useContext, useRef } from "react";
-import UserNavbar from "../components/UserNavbar";
-import ContextApi from "../components/ContextApi";
+import UserNavbar from "../ApiAndComponent/UserNavbar";
+import ContextApi from "../ApiAndComponent/ContextApi";
 import { toast, Toaster } from "react-hot-toast";
-import TeamBulletin from "../components/TeamBulletin";
+import TeamBulletin from "./TeamBulletin";
 import "../css/LoginCss.css";
 import profileIcon from "../images/icons8-profile-80.png";
 import { io } from "socket.io-client";
-import CreateTeam from "../components/CreateTeamProject";
+import CreateTeam from "./CreateTeamProject";
 import addicon from "../images/addition.png";
 import meeticon from "../images/meet.png";
 import addmembericon from "../images/social.png";
-import TeamProjects from "../components/TeamProjects";
+import TeamProjects from "./TeamProjects";
 
 import { useNavigate } from "react-router-dom";
 import { useLocation } from "react-router-dom";

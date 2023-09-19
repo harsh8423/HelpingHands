@@ -1,7 +1,7 @@
 import React,{useState} from 'react';
-import MyContracts from '../components/MyContracts';
-import MyProposals from '../components/MyProposals';
-import UserNavbar from "../components/UserNavbar";
+import MyContracts from './MyContracts';
+import MyProposals from './MyProposals';
+import UserNavbar from "../ApiAndComponent/UserNavbar";
 import "../css/LoginCss.css"
 
 export default function MyContractandProposal() {

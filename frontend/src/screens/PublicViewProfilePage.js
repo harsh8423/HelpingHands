@@ -1,6 +1,6 @@
 import React, { useContext, useState, useEffect } from "react";
-import UserNavbar from "../components/UserNavbar";
-import ContextApi from "../components/ContextApi";
+import UserNavbar from "../ApiAndComponent/UserNavbar";
+import ContextApi from "../ApiAndComponent/ContextApi";
 import userIcon from "../images/user.png";
 import "../css/starCss.css";
 import resumeIcon from "../images/icons8-resume-64.png";
@@ -11,7 +11,7 @@ import { useLocation } from "react-router-dom";
 import "swiper/css";
 import teamIcon from "../images/group.png";
 import back from "../images/R.jpg";
-import Filters from "../components/Filters";
+import Filters from "../ApiAndComponent/Filters";
 import { toast, Toaster } from "react-hot-toast";
 
 

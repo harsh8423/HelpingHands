@@ -1,18 +1,18 @@
 import React, { useContext, useState, useEffect } from "react";
-import UserNavbar from "../components/UserNavbar";
+import UserNavbar from "../ApiAndComponent/UserNavbar";
 import { useNavigate } from "react-router-dom";
-import ContextApi from "../components/ContextApi";
+import ContextApi from "../ApiAndComponent/ContextApi";
 import { toast, Toaster } from "react-hot-toast";
 import "../css/LoginCss.css";
-import HomeBanner from "../components/HomeBanner";
+import HomeBanner from "../ApiAndComponent/HomeBanner";
 import saveIcon from "../images/ribbon.png";
 import userIcon from "../images/user1.png";
 import teamIcon from "../images/group.png";
 import back from "../images/R.jpg";
 import userback from "../images/OIP.jpg";
-import HomeButtons from "../components/HomeButtons";
+import HomeButtons from "../ApiAndComponent/HomeButtons";
 import budgetIcon from "../images/money-bag.png";
-import searchableNames from "./SearchableNames";
+import searchableNames from "../ApiAndComponent/SearchableNames";
 import Select from "react-select";
 
 export default function UserPage() {

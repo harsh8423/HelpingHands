@@ -1,25 +1,20 @@
-import React from "react";
+import React,{useState} from "react";
 import { ethers } from "ethers";
 
 export default function ProjectContractSign(props) {
   const { confirmation, project, state } = props;
   const [memos, setMemos] = useState([]);
   const { contract } = state;
-
   const projectTransactions = async () => {
     if (true) {
       const { contract } = state;
       const name = project.projectTitle
-      const message = confirmation?.budget;
-      console.log("hhhhhhh",name, message, contract);
+      const message = project.id;
+      console.log("contracts",name, message, contract);
       const amount = { value: ethers.utils.parseEther("0") };
       const transaction = await contract.debit(name, message, amount);
       await transaction.wait();
       console.log("Transaction is done");
-      const memosMessage = async () => {
-        const memos = await contract.getMemos();
-        setMemos(memos);
-      };
     }
     const response = await fetch(
       "http://localhost:5000/api/projectTransactions",

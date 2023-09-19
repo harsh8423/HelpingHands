@@ -4,7 +4,7 @@ import logoIcon from "../images/Screenshot_2023-08-09_143330-transformed-transfo
 import { useNavigate } from "react-router-dom";
 import { toast, Toaster } from "react-hot-toast";
 import MobileOTP from "./MobileOTP";
-import searchableNames from "./SearchableNames";
+import searchableNames from "../ApiAndComponent/SearchableNames";
 
 import skills from "./Skills";
 

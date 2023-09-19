@@ -1,5 +1,5 @@
 import React, { useState, useContext } from "react";
-import ContextApi from "../ContextApi";
+import ContextApi from "../../ApiAndComponent/ContextApi";
 
 import skills from "../../screens/Skills";
 import logoIcon from "../../images/Screenshot_2023-08-09_143330-transformed-transformed.png";

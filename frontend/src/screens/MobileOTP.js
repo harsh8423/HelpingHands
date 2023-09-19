@@ -10,7 +10,7 @@ import "../css/LoginCss.css";
 
 import otpIcon from "../images/Screenshot_2023-08-13_181553-transformed-transformed.png";
 import { useNavigate } from "react-router-dom";
-import searchableNames from "./SearchableNames";
+import searchableNames from "../ApiAndComponent/SearchableNames";
 
 export default function MobileOTP(props) {
   let navigate = useNavigate();

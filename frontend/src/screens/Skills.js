@@ -1,4 +1,5 @@
 const skills = [
+   // Web Development
     { label: `Web  Development `, value: "Web Development" },
     { label: "SEO", value: "SEO" },
     { label: "Social Media Marketing", value: "Social Media Marketing" },
