@@ -1,3 +1,6 @@
+#    HELPING HANDS
+- # TEAM NAME : WhiteTechJrs
+- # TEAM CODE : 86
 # Deploy
 We need to setup HardHat node server
 
