@@ -46,6 +46,92 @@ Password : aftaab
 Home page  will be open , you can see various 
  
 ![WhatsApp Image 2023-09-20 at 02 10 16](https://github.com/MoAftaab/HelpingHands/assets/143253758/9b6d0caf-c734-4928-9a40-7cb39cb5ecf9)
+
+ ## Credit-based system
+
+Our credit-based system is a way to reward users for contributing their skills and knowledge to the platform. Users can earn credits by completing tasks such as:
+- Creating and sharing projects
+- Answering questions
+- Reviewing projects
+
+Credits can be used to:
+
+- Access exclusive content and features
+- Redeem for rewards such as discounts on products or services
+- Increase your reputation on the platform
+
+ 
+Filter feature
+
+- Our filter feature allows you to easily find projects based on credits. To use the filter feature, simply click on the "Filter" button and select the desired credit range. You can also filter projects by other criteria, such as skillset, project category, and project owner.
+
+![WhatsApp Image 2023-09-20 at 13 09 39](https://github.com/MoAftaab/HelpingHands/assets/143253758/d47739ef-40bd-4c73-86a1-bb7d599dad5d)
+
+
+Buttons : 
+
+- Build your profile
+  
+  ![WhatsApp Image 2023-09-20 at 11 18 15](https://github.com/MoAftaab/HelpingHands/assets/143253758/e275bcaa-2d60-4455-a494-897bdf83b54d)
+
+
+You can upload these to build your profile :
+- Upload Project
+- Upload Certificate
+- Add Achievements
+- Add Bio
+  
+![WhatsApp Image 2023-09-20 at 11 42 34](https://github.com/MoAftaab/HelpingHands/assets/143253758/066ae88f-16f7-4e33-affe-6b303ba8abfc)
+
+
+- Post your project
+
+  ![WhatsApp Image 2023-09-20 at 11 38 55](https://github.com/MoAftaab/HelpingHands/assets/143253758/bded69e2-d908-4e54-8979-40de6accf7b5)
+
+Here you have to enter your project details  
+  ![WhatsApp Image 2023-09-20 at 11 43 47](https://github.com/MoAftaab/HelpingHands/assets/143253758/e4b405ac-25b3-4cd4-817f-d71f5d7c9a29)
+
+
+ My Contracts and proposals
+
+ ![WhatsApp Image 2023-09-20 at 11 38 54](https://github.com/MoAftaab/HelpingHands/assets/143253758/787249ea-92b9-4c6b-886c-ab452bbe5dc5)
+ 
+
+
+Navigate to My proposals
+
+- In  my proposals you will get all the projects that you have proposed to be worked on. If the client has accepeted your proposal , you will be able to see the ACCEPTED and CONFIRMATION LETTER highlighted. 
+
+- Click on Confirmation Letter to accept it.
+
+![WhatsApp Image 2023-09-20 at 12 06 03](https://github.com/MoAftaab/HelpingHands/assets/143253758/d1f056a4-b5c7-4527-b9ea-fd67ba66df38)
+
+ 
+Click on Accept  
+
+
+![WhatsApp Image 2023-09-20 at 12 30 33](https://github.com/MoAftaab/HelpingHands/assets/143253758/60f073d7-7d69-4fd3-8a98-b00aecdc0140)
+
+
+ You will be redirected to metamask wallet. Pls click on confirm to confirm the transaction 
+
+ ![WhatsApp Image 2023-09-20 at 12 31 56](https://github.com/MoAftaab/HelpingHands/assets/143253758/b728731d-2e69-426d-8eb6-75986d413170)
+
+
+ - Project details and transaction id will be stored in a smart contract which could be verified with the database
+ - To see the past transactions made. Click on show transaction
+
+   ![WhatsApp Image 2023-09-20 at 12 36 26](https://github.com/MoAftaab/HelpingHands/assets/143253758/34c71689-e18b-4096-b73d-75c664442a97)
+
+ 
+##  We also have team feature to show that a team can add any temporary member with the particular skill required to work colaborately. 
+-  Used to create ad hoc teams for brainstorming sessions, problem-solving
+-  Can commnuicate with the group through chat system
+-  Real time video conferencing feature 
+
+![WhatsApp Image 2023-09-20 at 12 44 57](https://github.com/MoAftaab/HelpingHands/assets/143253758/4504bdda-2d54-4a0c-8018-18eb48f5f1f5)
+
+
  
 Functionality:
 
