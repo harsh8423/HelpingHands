@@ -184,3 +184,9 @@ Use Cases:
 4. Entrepreneurs: Entrepreneurs can assemble project teams with the right skills to develop their startup ideas without a large upfront cost.
  
 5. Project Managers: Project managers can form teams for specific projects, ensuring efficient collaboration and progress tracking.
+
+## UNIQUE SELLING POINT (USP)
+- Users have the opportunity to finish their projects at no cost by assisting others with their projects.
+- Users accumulate credits (money) by assisting on projects, which can be redeemed or used for other benefits.
+- Users can form project teams, fostering collaboration and knowledge sharing and add temporary team members with specific skills to your project when needed.
+
