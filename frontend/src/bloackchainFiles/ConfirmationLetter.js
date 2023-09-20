@@ -1,26 +1,45 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "../css/LoginCss.css";
-
 import abi from "../contract/info.json";
-import { useState, useEffect } from "react";
 import { ethers } from "ethers";
 import ProjectContractSign from "./ProjectContractSign";
 import Memos from "./Memos";
+
+/**
+ * ConfirmationLetter Component
+ *
+ * This component displays a confirmation letter for a project and allows users
+ * to interact with a smart contract for project confirmation.
+ *
+ * @param {Object} props - Component props containing `confirmation` and `project` details.
+ */
 export default function ConfirmationLetter(props) {
   const { confirmation, project } = props;
-  console.log(confirmation);
 
+  // State for managing component visibility
   const [pageState, setpageState] = useState(true);
+
+  // State for managing Ethereum provider, signer, and contract
   const [state, setState] = useState({
     provider: null,
     signer: null,
     contract: null,
   });
+
+  // State for storing the connected Ethereum account
   const [account, setAccount] = useState("None");
+
   useEffect(() => {
+    /**
+     * Connect to Wallet Function
+     *
+     * This function initializes the connection to the Ethereum wallet (e.g., MetaMask)
+     * and sets up the necessary Ethereum provider, signer, and contract for interaction.
+     */
     const connectWallet = async () => {
       const contractAddress = "0x5FbDB2315678afecb367f032d93F642f64180aa3";
       const contractABI = abi.abi;
+
       try {
         const { ethereum } = window;
 
@@ -29,14 +48,6 @@ export default function ConfirmationLetter(props) {
             method: "eth_requestAccounts",
           });
 
-          // window.ethereum.on("chainChanged", () => {
-          //   window.location.reload();
-          // });
-
-          // window.ethereum.on("accountsChanged", () => {
-          //   window.location.reload();
-          // });
-
           const provider = new ethers.providers.Web3Provider(ethereum);
           const signer = provider.getSigner();
           const contract = new ethers.Contract(
@@ -44,43 +55,47 @@ export default function ConfirmationLetter(props) {
             contractABI,
             signer
           );
+
           setAccount(account);
           setState({ provider, signer, contract });
         } else {
-          alert("Please install metamask");
+          alert("Please install MetaMask");
         }
       } catch (error) {
         console.log(error);
       }
     };
+
     connectWallet();
   }, []);
-  console.log("state", state);
 
+  /**
+   * Project Transactions Function
+   *
+   * This function sends a POST request to a local API to record project transactions.
+   * It includes information such as project ID, transaction type, amount, client ID, and project name.
+   */
   const projectTransactions = async () => {
-    const response = await fetch(
-      "http://localhost:5000/api/projectTransactions",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          id: project.id,
-          type: "debit",
-          amount: confirmation.budget,
-          clientID: project.proposalID,
-          projectName: project.projectTitle,
-        }),
-      }
-    );
+    const response = await fetch("http://localhost:5000/api/projectTransactions", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        id: project.id,
+        type: "debit",
+        amount: confirmation.budget,
+        clientID: project.proposalID,
+        projectName: project.projectTitle,
+      }),
+    });
+
     const json = await response.json();
-    console.log(json);
+
     if (json.success) {
-      console.log("retrieved");
-    }
-    if (!json.success) {
-      console.log("not retrieved");
+      console.log("Transaction recorded successfully");
+    } else {
+      console.log("Transaction recording failed");
     }
   };
 
@@ -88,6 +103,7 @@ export default function ConfirmationLetter(props) {
     <>
       <div className="row">
         <div className="col-12">
+          {/* Toggle between displaying project details and memos */}
           <button
             className="button-07"
             onClick={() => {
@@ -103,6 +119,7 @@ export default function ConfirmationLetter(props) {
         </div>
         <br />
         {pageState ? (
+          // Display project confirmation letter and details
           <>
             <h1 style={{ color: "green", fontWeight: "bold" }}>
               Confirmation Letter Project: {project.projectTitle}
@@ -128,6 +145,7 @@ export default function ConfirmationLetter(props) {
                   </div>
                 </div>
 
+                {/* Render the ProjectContractSign component */}
                 <div className="row">
                   <ProjectContractSign
                     state={state}
@@ -139,6 +157,7 @@ export default function ConfirmationLetter(props) {
             </div>
           </>
         ) : (
+          // Display memos using the Memos component
           <div className="row">
             <Memos state={state} />
           </div>
