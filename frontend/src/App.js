@@ -1,9 +1,14 @@
+import React from "react";
+
+
 import Home from "./screens/Home";
 import Login from "./screens/Login";
 import ProfileDetail from "./screens/ProfileDetail";
 import MobileOTP from "./screens/MobileOTP";
+
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import ContextStat from "./ApiAndComponent/ContetxStat";
+
 import UserPage from "./screens/UserPage";
 import UserProfilePage from "./screens/UserProfilePage";
 import PostJob from "./components/PostJob";
