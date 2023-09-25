@@ -14,7 +14,7 @@ import pppt7 from "../homeimages/adaade6657cec5c8e906c6705fb064ff-7.jpg";
 import pppt8 from "../homeimages/adaade6657cec5c8e906c6705fb064ff-8.jpg";
 
 
-export default function home() {
+export default function Home() {
 
   return (
     <>
