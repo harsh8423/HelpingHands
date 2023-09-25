@@ -4,14 +4,14 @@ import Navbar from "../ApiAndComponent/Navbar";
 import logoIcon from "../images/Screenshot_2023-08-09_143330-transformed-transformed.png";
 import { Link } from "react-router-dom";
 
-import pppt1 from "../homeimages/adaade6657cec5c8e906c6705fb064ff-1.jpg";
-import pppt2 from "../homeimages/adaade6657cec5c8e906c6705fb064ff-2.jpg";
-import pppt3 from "../homeimages/adaade6657cec5c8e906c6705fb064ff-3.jpg";
-import pppt4 from "../homeimages/adaade6657cec5c8e906c6705fb064ff-4.jpg";
-import pppt5 from "../homeimages/adaade6657cec5c8e906c6705fb064ff-5.jpg";
-import pppt6 from "../homeimages/adaade6657cec5c8e906c6705fb064ff-6.jpg";
-import pppt7 from "../homeimages/adaade6657cec5c8e906c6705fb064ff-7.jpg";
-import pppt8 from "../homeimages/adaade6657cec5c8e906c6705fb064ff-8.jpg";
+// import pppt1 from "../homeimages/adaade6657cec5c8e906c6705fb064ff-1.jpg";
+// import pppt2 from "../homeimages/adaade6657cec5c8e906c6705fb064ff-2.jpg";
+// import pppt3 from "../homeimages/adaade6657cec5c8e906c6705fb064ff-3.jpg";
+// import pppt4 from "../homeimages/adaade6657cec5c8e906c6705fb064ff-4.jpg";
+// import pppt5 from "../homeimages/adaade6657cec5c8e906c6705fb064ff-5.jpg";
+// import pppt6 from "../homeimages/adaade6657cec5c8e906c6705fb064ff-6.jpg";
+// import pppt7 from "../homeimages/adaade6657cec5c8e906c6705fb064ff-7.jpg";
+// import pppt8 from "../homeimages/adaade6657cec5c8e906c6705fb064ff-8.jpg";
 
 
 export default function Home() {
@@ -36,7 +36,7 @@ export default function Home() {
           </div>
         </div>
       </div>
-      <div className="container-fluid text-center normal-box">
+      {/* <div className="container-fluid text-center normal-box">
         {" "}
         <img src={pppt1} width={1500} height={800} alt="..." />
         <img src={pppt2} width={1500} height={800} alt="..." />
@@ -46,7 +46,7 @@ export default function Home() {
         <img src={pppt6} width={1500} height={800} alt="..." />
         <img src={pppt7} width={1500} height={800} alt="..." />
         <img src={pppt8} width={1500} height={800} alt="..." />
-      </div>
+      </div> */}
       <div className="col-12 p-4 text-center">
             <button className="button-07 ">
             <Link className="nav-link" to="/Login">
