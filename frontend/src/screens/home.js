@@ -2,7 +2,7 @@ import React from "react";
 import "../css/LoginCss.css"
 import Navbar from "../ApiAndComponent/Navbar";
 import logoIcon from "../images/Screenshot_2023-08-09_143330-transformed-transformed.png";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 
 // import pppt1 from "../homeimages/adaade6657cec5c8e906c6705fb064ff-1.jpg";
 // import pppt2 from "../homeimages/adaade6657cec5c8e906c6705fb064ff-2.jpg";
@@ -27,13 +27,13 @@ export default function Home() {
               LET'S MAKE IT
             </p>
           </div>
-          <div className="col-12 p-4 text-center">
+          {/* <div className="col-12 p-4 text-center">
             <button className="button-07 ">
             <Link className="nav-link" to="/Login">
                 LOGIN
               </Link>
             </button>
-          </div>
+          </div> */}
         </div>
       </div>
       {/* <div className="container-fluid text-center normal-box">
@@ -47,13 +47,13 @@ export default function Home() {
         <img src={pppt7} width={1500} height={800} alt="..." />
         <img src={pppt8} width={1500} height={800} alt="..." />
       </div> */}
-      <div className="col-12 p-4 text-center">
+      {/* <div className="col-12 p-4 text-center">
             <button className="button-07 ">
             <Link className="nav-link" to="/Login">
                 LOGIN
               </Link>
             </button>
-          </div>
+          </div> */}
     </>
   );
 }
