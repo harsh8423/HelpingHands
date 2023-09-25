@@ -1,7 +1,7 @@
 import React from "react";
-import "../css/LoginCss.css"
+// import "../css/LoginCss.css"
 import Navbar from "../ApiAndComponent/Navbar";
-import logoIcon from "../images/Screenshot_2023-08-09_143330-transformed-transformed.png";
+// import logoIcon from "../images/Screenshot_2023-08-09_143330-transformed-transformed.png";
 // import { Link } from "react-router-dom";
 
 // import pppt1 from "../homeimages/adaade6657cec5c8e906c6705fb064ff-1.jpg";
