@@ -1,7 +1,7 @@
 import React from "react";
 
 
-import Home from "./screens/Home";
+// import Home from "./screens/Home";
 import Login from "./screens/Login";
 import ProfileDetail from "./screens/ProfileDetail";
 import MobileOTP from "./screens/MobileOTP";
@@ -31,8 +31,8 @@ function App() {
           <div className="App">
             <Routes>
               {/* Define routes for different screens/components */}
-              <Route exact path="/" element={<Home />} />
-              <Route exact path="/Login" element={<Login />} />
+              {/* <Route exact path="/" element={<Home />} /> */}
+              <Route exact path="/" element={<Login />} />
               <Route exact path="/ProfileDetail" element={<ProfileDetail />} />
               <Route exact path="/MobileOTP" element={<MobileOTP />} />
               <Route exact path="/UserPage" element={<UserPage />} />
