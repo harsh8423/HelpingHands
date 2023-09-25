@@ -13,7 +13,11 @@ export default function ProjectContractSign(props) {
   const { confirmation, project, state } = props;
 
   // State to store project memos
+<<<<<<< HEAD
   // const [memos, setMemos] = useState([]);
+=======
+  const [memos, setMemos] = useState([]);
+>>>>>>> a0be1b0e0cf3e907201934ec80935068d465c51c
 
   // Destructure the 'contract' object from the 'state' prop
   const { contract } = state;
@@ -28,6 +32,7 @@ export default function ProjectContractSign(props) {
    */
   const projectTransactions = async () => {
     // Check if the contract object is available
+<<<<<<< HEAD
     // if (contract) {
     //   const name = project.projectTitle;
     //   const message = project.id;
@@ -42,6 +47,22 @@ export default function ProjectContractSign(props) {
     //     console.error("Error executing contract transaction:", error);
     //   }
     // }
+=======
+    if (contract) {
+      const name = project.projectTitle;
+      const message = project.id;
+      const amount = { value: ethers.utils.parseEther("0") };
+
+      try {
+        // Call the 'debit' function on the contract
+        const transaction = await contract.debit(name, message, amount);
+        await transaction.wait();
+        console.log("Transaction is done");
+      } catch (error) {
+        console.error("Error executing contract transaction:", error);
+      }
+    }
+>>>>>>> a0be1b0e0cf3e907201934ec80935068d465c51c
 
     // Send a POST request to record the project transaction
     const response = await fetch("http://localhost:5000/api/projectTransactions", {
