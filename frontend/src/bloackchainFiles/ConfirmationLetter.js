@@ -169,46 +169,12 @@ export default function ConfirmationLetter(props) {
             {/* Render the ProjectContractSign component */}
             <div className="row">
               <ProjectContractSign
-                state={state}
+                // state={state}
                 project={project}
                 confirmation={confirmation}
               />
             </div>
         
-            <h1 style={{ color: "green", fontWeight: "bold" }}>
-              Confirmation Letter Project: {project.projectTitle}
-            </h1>
-            <div className="col-12 normal-box p-5 mt-4">
-              <div className="container">
-                <div style={{ border: "2px solid grey" }} className="row p-5">
-                  <div
-                    className="col-12"
-                    style={{ fontsize: "12px", position: "relative" }}
-                  >
-                    {confirmation?.letter}
-                    <span
-                      style={{
-                        float: "right",
-                        color: "red",
-                        fontWeight: "bold",
-                      }}
-                    >
-                      {confirmation?.status}
-                    </span>
-                    <h4>Final Credit Offered: {confirmation?.budget}</h4>
-                  </div>
-                </div>
-
-                {/* Render the ProjectContractSign component */}
-                <div className="row">
-                  <ProjectContractSign
-                    state={state}
-                    project={project}
-                    confirmation={confirmation}
-                  />
-                </div>
-              </div>
-            </div>
           </div>
         </div>       
       </div>
