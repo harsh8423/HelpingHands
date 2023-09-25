@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import "../css/LoginCss.css";
-import abi from "../contract/info.json";
-import { ethers } from "ethers";
+// import abi from "../contract/info.json";
+// import { ethers } from "ethers";
 import ProjectContractSign from "./ProjectContractSign";
-import Memos from "./Memos";
+// import Memos from "./Memos";
 
 /**
  * ConfirmationLetter Component
