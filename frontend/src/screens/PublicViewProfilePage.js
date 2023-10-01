@@ -91,7 +91,7 @@ export default function PublicViewProfilePage() {
     const teamID = a.user.team.teamID
     console.log(teamID)
     console.log("connecting")
-    const response = await fetch("http://localhost:5000/api/addtoteam", {
+    const response = await fetch("https://helping-hands-api.vercel.app/api/addtoteam", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -116,7 +116,7 @@ export default function PublicViewProfilePage() {
 
   const connectRequest = async()=>{
     console.log("connecting")
-    const response = await fetch("http://localhost:5000/api/connectRequest", {
+    const response = await fetch("https://helping-hands-api.vercel.app/api/connectRequest", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

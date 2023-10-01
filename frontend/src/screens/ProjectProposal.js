@@ -26,7 +26,7 @@ export default function ProjectProposal() {
     e.preventDefault()
     console.log(credentials);
     console.log("calling api")
-    const response = await fetch("http://localhost:5000/api/ProjectProposal", {
+    const response = await fetch("https://helping-hands-api.vercel.app/api/ProjectProposal", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

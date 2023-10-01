@@ -20,7 +20,7 @@ export default function MyContracts() {
   });
 
   const contract = async () => {
-    const response = await fetch("http://localhost:5000/api/MyContracts", {
+    const response = await fetch("https://helping-hands-api.vercel.app/api/MyContracts", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

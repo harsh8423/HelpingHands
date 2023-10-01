@@ -22,7 +22,7 @@ export default function JobConfirmLetter() {
 
       const XpostProject = async (e) => {
         console.log(credentials);
-        const response = await fetch("http://localhost:5000/api/JobConfirmLetter", {
+        const response = await fetch("https://helping-hands-api.vercel.app/api/JobConfirmLetter", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",

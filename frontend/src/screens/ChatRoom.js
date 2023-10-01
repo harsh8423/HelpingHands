@@ -6,8 +6,6 @@ import userIcon from "../images/user1.png";
 import "../css/LoginCss.css";
 import { io } from "socket.io-client";
 import "./chatRoom.css";
-import blueTickIcon from "../images/icons8-portfolio-48.png";
-import doubleTickIcon from "../images/icons8-double-tick-50.png";
 
 export default function ChatRoom() {
   const isMobile = window.innerWidth <= 700; // Adjust the breakpoint as needed
@@ -74,7 +72,7 @@ export default function ChatRoom() {
     setnotificationCount("");
     setnotification("");
     setnotificationCount(0);
-    const response = await fetch("http://localhost:5000/api/markAsRead", {
+    const response = await fetch("https://helping-hands-api.vercel.app/api/markAsRead", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -121,7 +119,7 @@ export default function ChatRoom() {
   }, [messages]);
 
   const getmessages = async () => {
-    const response = await fetch("http://localhost:5000/api/getmessages", {
+    const response = await fetch("https://helping-hands-api.vercel.app/api/getmessages", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -171,7 +169,7 @@ export default function ChatRoom() {
 
     console.log(" .........................", chatID);
 
-    const response = await fetch("http://localhost:5000/api/sendMessage", {
+    const response = await fetch("https://helping-hands-api.vercel.app/api/sendMessage", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

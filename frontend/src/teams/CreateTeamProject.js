@@ -10,7 +10,7 @@ export default function CreateTeam() {
   const createteam = async(e)=>{
     console.log(credentials.deadline)
     e.preventDefault()
-    const response = await fetch("http://localhost:5000/api/CreateTeamProject", {
+    const response = await fetch("https://helping-hands-api.vercel.app/api/CreateTeamProject", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

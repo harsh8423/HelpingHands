@@ -33,7 +33,7 @@ export default function ProjectUploadScript(props) {
   const postProject = async(e)=>{
     e.preventDefault();
     console.log(credentials);
-    const response = await fetch("http://localhost:5000/api/postProject", {
+    const response = await fetch("https://helping-hands-api.vercel.app/api/postProject", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

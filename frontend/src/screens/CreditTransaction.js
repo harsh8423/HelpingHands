@@ -15,7 +15,7 @@ export default function CreditTransaction() {
   const [budget, setbudget] = useState(0);
   const createTransactions = async () => {
     const response = await fetch(
-      "http://localhost:5000/api/createTransactions",
+      "https://helping-hands-api.vercel.app/api/createTransactions",
       {
         method: "POST",
         headers: {
@@ -38,7 +38,7 @@ export default function CreditTransaction() {
   };
 
   const getTransactions = async () => {
-    const response = await fetch("http://localhost:5000/api/getTransactions", {
+    const response = await fetch("https://helping-hands-api.vercel.app/api/getTransactions", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -75,7 +75,7 @@ export default function CreditTransaction() {
   const makePayment = async()=>{
     const stripe = await loadStripe("pk_test_51Nr5KGSJ5d6Cj4qWOWtqd6oHSCH3wq1lcCL73Hx3nz0GR7QZ9JMtD5S4EjRRjI3CwdQXAKS2BMm5QPP2BKQmjnNA00JWDoP1jC")
 
-        const response = await fetch("http://localhost:5000/api/crerate-checkout-session", {
+        const response = await fetch("https://helping-hands-api.vercel.app/api/crerate-checkout-session", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",

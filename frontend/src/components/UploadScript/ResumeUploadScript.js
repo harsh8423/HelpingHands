@@ -35,7 +35,7 @@ export default function ResumeUploadScript() {
 
     console.log(id)
     const response = await axios.post(
-      "http://localhost:5000/api/upload-image",
+      "https://helping-hands-api.vercel.app/api/upload-image",
       formData,{id},
       {
         headers: { "Content-Type": "multipart/form-data" },
@@ -79,7 +79,7 @@ export default function ResumeUploadScript() {
     };
 
 //   const getImage = async () => {
-//     const result = await axios.get("http://localhost:5000/get-image");
+//     const result = await axios.get("https://helping-hands-api.vercel.app/get-image");
 //     console.log(result);
 //     setAllImage(result.data.data);
 //   };

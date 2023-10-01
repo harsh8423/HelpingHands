@@ -14,7 +14,7 @@ export default function MyConnects() {
 
 
   const connectRequest = async () => {
-    const response = await fetch("http://localhost:5000/api/Myconnect", {
+    const response = await fetch("https://helping-hands-api.vercel.app/api/Myconnect", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -37,7 +37,7 @@ export default function MyConnects() {
   };
 
   const acceptRequest = async (user) => {
-    const response = await fetch("http://localhost:5000/api/Acceptconnect", {
+    const response = await fetch("https://helping-hands-api.vercel.app/api/Acceptconnect", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

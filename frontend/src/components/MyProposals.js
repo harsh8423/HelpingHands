@@ -24,7 +24,7 @@ export default function MyProposals() {
   });
 
   const contract = async () => {
-    const response = await fetch("http://localhost:5000/api/contracts", {
+    const response = await fetch("https://helping-hands-api.vercel.app/api/contracts", {
       method: "GET",
       headers: {
         "Content-Type": "application/json",

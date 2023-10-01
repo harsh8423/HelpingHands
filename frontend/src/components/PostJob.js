@@ -55,7 +55,7 @@ export default function ProfileDetail() {
   const postProject = async (e) => {
     console.log(credentials);
     console.log("calling api")
-    const response = await fetch("http://localhost:5000/api/PostProject", {
+    const response = await fetch("https://helping-hands-api.vercel.app/api/PostProject", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

@@ -118,7 +118,7 @@ export default function ConfirmationLetter(props) {
   
   const projectTransactions = async () => {
    
-    const response = await fetch("http://localhost:5000/api/projectTransactions", {
+    const response = await fetch("https://helping-hands-api.vercel.app/api/projectTransactions", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

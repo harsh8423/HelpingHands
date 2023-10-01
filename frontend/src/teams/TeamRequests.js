@@ -11,7 +11,7 @@ export default function TeamReaquests() {
 
   const [requests, setrequests] = useState([]);
   const getTeamRequests = async () => {
-    const response = await fetch("http://localhost:5000/api/getTeamRequests", {
+    const response = await fetch("https://helping-hands-api.vercel.app/api/getTeamRequests", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -35,7 +35,7 @@ export default function TeamReaquests() {
 
 
   const acceptRequests = async (teamID) => {
-    const response = await fetch("http://localhost:5000/api/acceptRequests", {
+    const response = await fetch("https://helping-hands-api.vercel.app/api/acceptRequests", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

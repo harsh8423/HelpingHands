@@ -55,7 +55,7 @@ export default function TeamRoom() {
       teamID = user;
     }
     console.log(teamID);
-    const response = await fetch("http://localhost:5000/api/getTeamData", {
+    const response = await fetch("https://helping-hands-api.vercel.app/api/getTeamData", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -83,7 +83,7 @@ export default function TeamRoom() {
   const approve = async (id) => {
     const teamID = a.user.team.teamID;
     console.log(teamID);
-    const response = await fetch("http://localhost:5000/api/approveRequest", {
+    const response = await fetch("https://helping-hands-api.vercel.app/api/approveRequest", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -109,7 +109,7 @@ export default function TeamRoom() {
     e.preventDefault();
     console.log("object");
 
-    const response = await fetch("http://localhost:5000/api/endMessageX", {
+    const response = await fetch("https://helping-hands-api.vercel.app/api/endMessageX", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

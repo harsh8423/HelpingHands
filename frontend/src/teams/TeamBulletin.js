@@ -16,7 +16,7 @@ export default function TeamBulletin(props) {
   };
   
   const Xcreateteam = async () => {
-    const response = await fetch("http://localhost:5000/api/TeamBulletin", {
+    const response = await fetch("https://helping-hands-api.vercel.app/api/TeamBulletin", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -42,7 +42,7 @@ export default function TeamBulletin(props) {
   };
   
   const getBulletins = async () => {
-    const response = await fetch("http://localhost:5000/api/getBulletins", {
+    const response = await fetch("https://helping-hands-api.vercel.app/api/getBulletins", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

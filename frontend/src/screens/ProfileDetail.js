@@ -43,7 +43,7 @@ export default function ProfileDetail() {
   const postBio = async(e)=>{
     e.preventDefault();
     console.log(credentials);
-    const response = await fetch("http://localhost:5000/api/postBio", {
+    const response = await fetch("https://helping-hands-api.vercel.app/api/postBio", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -72,7 +72,7 @@ export default function ProfileDetail() {
 
   const handleportfolioWebsiteURL = async (e) => {
     console.log(porfoliowebURL)
-    const response = await fetch("http://localhost:5000/api/portfolioWebsiteURL", {
+    const response = await fetch("https://helping-hands-api.vercel.app/api/portfolioWebsiteURL", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

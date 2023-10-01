@@ -24,7 +24,7 @@ export default function MobileOTP(props) {
   const [phoneNumber, setphoneNumber] = useState("");
 
   const saveMobileNumber = async (e) => {
-    const response = await fetch("http://localhost:5000/api/saveMobileNumber", {
+    const response = await fetch("https://helping-hands-api.vercel.app/api/saveMobileNumber", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -51,7 +51,7 @@ export default function MobileOTP(props) {
 
 
   const verifyPhone = async()=>{
-    const response = await fetch("http://localhost:5000/api/verifyPhone", {
+    const response = await fetch("https://helping-hands-api.vercel.app/api/verifyPhone", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -150,7 +150,7 @@ export default function MobileOTP(props) {
   };
 
   const handleMobileLogin = async (e) => {
-    const response = await fetch("http://localhost:5000/api/MobileLogin", {
+    const response = await fetch("https://helping-hands-api.vercel.app/api/MobileLogin", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
