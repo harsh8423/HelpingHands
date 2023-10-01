@@ -10,11 +10,15 @@ import { toast, Toaster } from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 
+
 export default function ProfileDetail() {
   const a = useContext(ContextApi);
   let navigate = useNavigate();
   const location = useLocation();
   const user = location?.state;
+
+  const isMobile = window.innerWidth <= 700; // Adjust the breakpoint as needed
+
 
   var [PageState, setPageState] = useState(1);
 
@@ -117,22 +121,15 @@ export default function ProfileDetail() {
               className="normal-box p-5 text-center"
               style={{
                 height: "auto",
-                width: "auto",
-                minWidth: "300px",
+                width: isMobile? "100vw":"80vw",
                 position: "relative",
               }}
             >
-              <img
-                style={{ position: "absolute", right: "0px", top: "-30px" }}
-                src={logoIcon}
-                width={160}
-                height={60}
-                alt="..."
-              />
+            
               <p
                 style={{
                   color: "green",
-                  fontSize: "2rem",
+                  fontSize: "2vmax",
                   fontWeight: "bold",
                 }}
               >
@@ -167,7 +164,7 @@ export default function ProfileDetail() {
                     {!user && <div className="text-center mt-4">
                       <p
                         style={{
-                          fontSize: "20px",
+                          fontSize: "1.7vmax",
                           fontWeight: "bold",
                           color: "green",
                         }}
@@ -209,7 +206,7 @@ export default function ProfileDetail() {
                     <div className="text-center mt-4">
                       <p
                         style={{
-                          fontSize: "20px",
+                          fontSize: "1.7vmax",
                           fontWeight: "bold",
                           color: "green",
                         }}
@@ -247,7 +244,7 @@ export default function ProfileDetail() {
                     <div className="text-center mt-4">
                       <p
                         style={{
-                          fontSize: "20px",
+                          fontSize: "1.7vmax",
                           fontWeight: "bold",
                           color: "green",
                         }}
@@ -287,8 +284,8 @@ export default function ProfileDetail() {
                       <textarea
                         className="text-center m-1 button-6"
                         name="projectDuration"
-                        rows="1"
-                        cols="50"
+                        rows="auto"
+                        cols="auto"
                         placeholder="Tell us the duration of your project... example: 10days"
                         value={credentials.projectDuration}
                         onChange={onChangeHander}
@@ -302,7 +299,7 @@ export default function ProfileDetail() {
                     <div className="text-center">
                       <p
                         style={{
-                          fontSize: "20px",
+                          fontSize: "1.7vax",
                           fontWeight: "bold",
                           color: "green",
                         }}
@@ -312,9 +309,9 @@ export default function ProfileDetail() {
 
                       <label htmlFor="description"></label>
                       <textarea
-                        className="text-center m-1 button-6"
-                        rows="9"
-                        cols="70"
+                        className="text-center m-1 "
+                        width= "60vw"
+                        height= "60vw"
                         name="description"
                         placeholder="Write About the project Contract including Important Detail related to the Project"
                         value={credentials.description}
@@ -329,7 +326,7 @@ export default function ProfileDetail() {
                     <div className="text-center mt-4">
                       <p
                         style={{
-                          fontSize: "20px",
+                          fontSize: "1.7vmax",
                           fontWeight: "bold",
                           color: "green",
                         }}
@@ -356,7 +353,7 @@ export default function ProfileDetail() {
                       </span>
                       <p
                         style={{
-                          fontSize: "20px",
+                          fontSize: "1.7vmax",
                           fontWeight: "bold",
                           color: "green",
                         }}
@@ -383,11 +380,7 @@ export default function ProfileDetail() {
                 )}
               <button
               onClick={handleNextButton}
-              style={{
-                position: "absolute",
-                right: "20px",
-                bottom: "20px",
-              }}
+              
               className="button-55"
             >
               Next

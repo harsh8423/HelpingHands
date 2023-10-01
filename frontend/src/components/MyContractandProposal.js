@@ -20,10 +20,10 @@ export default function MyContractandProposal() {
         <UserNavbar/>
       <div className="container ">
         <div className="row">
-            <div className="col-6 p-3 text-center button-07" style={{cursor:"pointer"}} onClick={MyContract}>
+            <div className="col-sm-6 col-12 p-3 text-center button-07" style={{cursor:"pointer"}} onClick={MyContract}>
                 My Contracts   {Page==="My Contracts" && <hr style={{ borderWidth: "2px", borderBlockColor:"black" }} />}
             </div>
-            <div className="col-6 p-3 text-center button-07" style={{cursor:"pointer"}} onClick={MyProposal}>
+            <div className="col-sm-6 col-12 p-3 text-center button-07" style={{cursor:"pointer"}} onClick={MyProposal}>
                 My Proposals {Page==="My Proposals" && <hr style={{ borderWidth: "2px", borderBlockColor:"black" }} />}
             </div>
             <div className="col-12">

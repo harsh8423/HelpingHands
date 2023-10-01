@@ -79,7 +79,7 @@ export default function JobConfirmLetter() {
               <textarea
                 className="text-center m-1 button-6"
                 rows="20"
-                cols="100"
+                cols="30"
                 name="coverLetter"
                 placeholder="Write About the confirmation Contract including Important Detail related to the Project"
                 value={credentials.coverLetter}
@@ -95,7 +95,6 @@ export default function JobConfirmLetter() {
               >
                 Set your Project Bid
               </p>
-              <img src={budgetIcon} width={60} height={60} alt="..." />
               <span style={currencySymbolStyle}>Final Credits: </span>
               <input
                 type="number"

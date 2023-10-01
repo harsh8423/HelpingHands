@@ -4,7 +4,6 @@ import { useNavigate } from "react-router-dom";
 import logoIcon from "../../images/Screenshot_2023-08-09_143330-transformed-transformed.png";
 import { toast, Toaster } from "react-hot-toast";
 
-
 export default function CertificateUpload(props) {
     const a = useContext(ContextApi);
     let navigate = useNavigate();
@@ -70,13 +69,7 @@ export default function CertificateUpload(props) {
     >
               <Toaster toastOptions={{ duration: 4000 }} />
 
-      <img
-        style={{ position: "absolute", right: "0px", top: "-30px" }}
-        src={logoIcon}
-        width={160}
-        height={60}
-        alt="..."
-      />
+     
       <p
         style={{
           color: "green",
@@ -147,9 +140,9 @@ export default function CertificateUpload(props) {
       <div className="text-center">
         <label htmlFor="description"></label>
         <textarea
-          className="text-center m-1 button-6"
-          rows="3"
-          cols="30"
+          className="text-center m-1"
+          rows="6"
+          cols="auto"
           name="description"
           placeholder="certification Description . . . ."
           value={credentials.description}

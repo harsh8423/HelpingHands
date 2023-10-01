@@ -7,9 +7,10 @@ import MobileOTP from "./MobileOTP";
 import searchableNames from "../ApiAndComponent/SearchableNames";
 
 import skills from "./Skills";
-
 import Select from "react-select";
 
+import Alert from 'react-bootstrap/Alert';
+import Button from 'react-bootstrap/Button';
 
 export default function Login() {
   let navigate = useNavigate();
@@ -116,6 +117,7 @@ export default function Login() {
 
       setTimeout(() => {
         navigate("../UserPage")
+        window.location.reload();
       }, 2000);
     }
   };
@@ -130,16 +132,32 @@ const handleSkills = (skills)=>{
     setskilled([...skilled,skill.label])
   })
 }
+const [show, setShow] = useState(true);
 
   return (
-    <div>
+    <div className="text-center">
+      <div >
+      <Alert variant="success">
+      <Alert.Heading>Hey, nice to see you</Alert.Heading>
+      <p>
+        If you are new visitor, you can Login to our demo Account <br />
+        Email: aftaab@gmail.com Password: aftaab    OR <br />
+        Email: harsh@gmail.com Password: harsh <br/>
+
+      </p>
+      <hr />
+      <p className="mb-0" style={{color:"red"}}>
+        Help us to Identify the <span style={{textDecoration:"underline"}}>Bugs by reporting issue</span> at bottom home section of the Home Page
+      </p>
+    </Alert>
+      </div>
       {otppage==="false"? (
         <div className="container-fluid">
         <div className="row">
           <div className="col-12 p-5">
-            <img src={logoIcon} width={160} height={60} alt="..." />
+            {/* <img src={logoIcon} width={160} height={60} alt="..." /> */}
           </div>
-          <Toaster toastOptions={{ duration: 4000 }} />
+          <Toaster toastOptions={{ duration: 2000 }} />
           <div className="col-12 d-flex justify-content-center align-items-center">
             <div
               className="normal-box p-5"

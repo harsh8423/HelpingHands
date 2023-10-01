@@ -1,11 +1,8 @@
 import React from "react";
-
-
 // import Home from "./screens/Home";
 import Login from "./screens/Login";
 import ProfileDetail from "./screens/ProfileDetail";
 import MobileOTP from "./screens/MobileOTP";
-
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import ContextStat from "./ApiAndComponent/ContetxStat";
 
@@ -22,6 +19,9 @@ import CreateTeam from "./teams/CreateTeam";
 import TeamRoom from "./teams/TeamRoom";
 import TeamRequests from "./teams/TeamRequests";
 import JobConfirmLetter from "./components/JobConfirmLetter";
+import CreditTransaction from "./screens/CreditTransaction";
+import ReportBug from "./screens/ReportBug";
+
 function App() {
   return (
     <>
@@ -48,6 +48,8 @@ function App() {
               <Route exact path="/TeamRoom" element={<TeamRoom/>} />
               <Route exact path="/TeamRequests" element={<TeamRequests/>} />
               <Route exact path="/JobConfirmLetter" element={<JobConfirmLetter/>} />
+              <Route exact path="/CreditTransaction" element={<CreditTransaction/>} />
+              <Route exact path="/ReportBug" element={<ReportBug/>} />
             </Routes>
           </div>
         </Router>

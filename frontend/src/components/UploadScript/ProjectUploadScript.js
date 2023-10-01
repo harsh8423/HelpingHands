@@ -2,7 +2,6 @@ import React, { useState, useContext } from "react";
 import ContextApi from "../../ApiAndComponent/ContextApi";
 
 import skills from "../../screens/Skills";
-import logoIcon from "../../images/Screenshot_2023-08-09_143330-transformed-transformed.png";
 import Select from "react-select";
 import { toast, Toaster } from "react-hot-toast";
 
@@ -65,18 +64,11 @@ export default function ProjectUploadScript(props) {
       className="normal-box p-5 text-center"
       style={{
         height: "auto",
-        width: "auto",
-        minWidth: "300px",
+        width: "80vw",
+        // minWidth: "200px",
         position: "relative",
       }}
     >
-      <img
-        style={{ position: "absolute", right: "0px", top: "-30px" }}
-        src={logoIcon}
-        width={160}
-        height={60}
-        alt="..."
-      />
       <p
         style={{
           color: "green",
@@ -134,15 +126,15 @@ export default function ProjectUploadScript(props) {
         <label htmlFor="description"></label>
         <textarea
           className="text-center m-1 button-6"
-          rows="3"
-          cols="30"
+          rows="6"
+          cols="auto"
           name="description"
           placeholder="Project Description . . . ."
           value={credentials.description}
           onChange={onChangeHander}
           required
         />
-        <button type="submit" style={{position:"absolute",right:"20px", bottom:"20px"}} className="button-55">Post</button>
+        <button type="submit"  className="button-55">Post</button>
       </div>
       </form>
     </div>

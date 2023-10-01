@@ -64,7 +64,7 @@ export default function MyContracts() {
   return (
     <div>
         <Toaster toastOptions={{ duration: 4000 }} />
-      <div className="container mt-5">
+      <div className="container-fluid mt-5">
         <h2>My Contracts</h2>
         <hr style={{ borderWidth: "3px" }} />
         {page==="false"? (
@@ -74,7 +74,7 @@ export default function MyContracts() {
             console.log("skills: ", skilled);
             return (
               <div
-                className="col-5 m-5 p-3"
+                className="col-sm-6 col-12 p-3"
                 style={{ border: "2px solid grey", borderRadius: "8px" }}
               >
                 <h5>
@@ -112,9 +112,11 @@ export default function MyContracts() {
                 >
                   Read more
                 </p>
+                <div className="skills">
+
                 {skilled.map((skill) => {
                   return (
-                    <span
+                    <div
                       style={{
                         margin: "4px",
                         padding: "5px",
@@ -124,9 +126,10 @@ export default function MyContracts() {
                       }}
                     >
                       <small style={{ fontWeight: "bolder" }}>{skill}</small>
-                    </span>
+                    </div>
                   );
                 })}
+                </div>
                 <p className="mt-3">
                   <small style={{ fontWeight: "bold", color: "grey" }}>
                     Teammate required:{" "} {project.projectType} <br />

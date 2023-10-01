@@ -5,11 +5,13 @@ import { useLocation } from "react-router-dom";
 import userIcon from "../images/user1.png";
 import "../css/LoginCss.css";
 import { io } from "socket.io-client";
-
+import "./chatRoom.css";
 import blueTickIcon from "../images/icons8-portfolio-48.png";
 import doubleTickIcon from "../images/icons8-double-tick-50.png";
 
 export default function ChatRoom() {
+  const isMobile = window.innerWidth <= 700; // Adjust the breakpoint as needed
+
   const a = useContext(ContextApi);
   const location = useLocation();
   const id = location?.state;
@@ -27,6 +29,13 @@ export default function ChatRoom() {
   const messageRef = useRef(null);
   const [notificationCount, setnotificationCount] = useState("");
   const [notification, setnotification] = useState("");
+  const [pageState, setpageState] = useState(true);
+  const [memStyle, setmemStyle] = useState({
+    backgroundColor: "",
+  });
+  const [chatyle, setchaStyle] = useState({
+    backgroundColor: "",
+  });
   console.log("OnlineUsers", OnlineUsers);
   console.log("messeges after online users", messages);
 
@@ -193,6 +202,9 @@ export default function ChatRoom() {
   }, []);
 
   const handleConversation = async (conversation, name) => {
+    setchaStyle({ backgroundColor: "#04AA6D" });
+    setmemStyle({ backgroundColor: "white" });
+    setpageState(false);
     await getmessages();
     const message = conversation.chatID.messages;
     const chtid = conversation.chatID._id;
@@ -219,109 +231,120 @@ export default function ChatRoom() {
       <UserNavbar />
       <div className="container mt-5">
         <h2>Chat Room</h2>
+        <div className="row chatbuttons">
+          <button
+            className="col-6 button-6 membutton"
+            style={memStyle}
+            onClick={() => {
+              setmemStyle({ backgroundColor: "#04AA6D" });
+              setchaStyle({ backgroundColor: "white" });
+              setpageState(true);
+            }}
+          >
+            Members
+          </button>
+          <button
+            className="col-6 button-6 chatbutton"
+            style={chatyle}
+            onClick={() => {
+              setchaStyle({ backgroundColor: "#04AA6D" });
+              setmemStyle({ backgroundColor: "white" });
+              setpageState(false);
+            }}
+          >
+            Chat
+          </button>
+        </div>
         <div className="row">
-          <div className="col-4 mt-4">
-            <div className="container-fluid">
-              <div className="row">
-                {conversations?.map((conversation) => {
-                  if (conversation.notification[0]) {
-                    const currentDate = new Date();
-                    const messageDate = new Date(
-                      conversation?.notification[0]?.dateStamp
-                    );
+          {(pageState || !isMobile) && (
+            <div className="col-sm-4 col-12 mt-4">
+              <div className="container-fluid">
+                <div className="row">
+                  {conversations?.map((conversation) => {
+                    if (conversation.notification[0]) {
+                      const currentDate = new Date();
+                      const messageDate = new Date(
+                        conversation?.notification[0]?.dateStamp
+                      );
 
-                    if (
-                      currentDate.toDateString() === messageDate.toDateString()
-                    ) {
-                      // Message sent today
-                      var formattedDate = messageDate.toLocaleTimeString([], {
-                        hour: "2-digit",
-                        minute: "2-digit",
-                      });
-                    } else if (
-                      currentDate.getDate() - messageDate.getDate() ===
-                      1
-                    ) {
-                      // Message sent yesterday
-                      var formattedDate = "Yesterday";
-                    } else if (
-                      currentDate.getDate() - messageDate.getDate() ===
-                      2
-                    ) {
-                      // Message sent day before yesterday
-                      var formattedDate = messageDate.toLocaleDateString([], {
-                        month: "numeric",
-                        day: "numeric",
-                        year: "2-digit",
-                      });
-                    } else {
-                      // Message sent on a specific date
-                      var formattedDate = messageDate.toLocaleDateString([], {
-                        month: "numeric",
-                        day: "numeric",
-                        year: "2-digit",
-                      });
+                      if (
+                        currentDate.toDateString() ===
+                        messageDate.toDateString()
+                      ) {
+                        // Message sent today
+                        var formattedDate = messageDate.toLocaleTimeString([], {
+                          hour: "2-digit",
+                          minute: "2-digit",
+                        });
+                      } else if (
+                        currentDate.getDate() - messageDate.getDate() ===
+                        1
+                      ) {
+                        // Message sent yesterday
+                        var formattedDate = "Yesterday";
+                      } else if (
+                        currentDate.getDate() - messageDate.getDate() ===
+                        2
+                      ) {
+                        // Message sent day before yesterday
+                        var formattedDate = messageDate.toLocaleDateString([], {
+                          month: "numeric",
+                          day: "numeric",
+                          year: "2-digit",
+                        });
+                      } else {
+                        // Message sent on a specific date
+                        var formattedDate = messageDate.toLocaleDateString([], {
+                          month: "numeric",
+                          day: "numeric",
+                          year: "2-digit",
+                        });
+                      }
                     }
-                  }
-                  var online = OnlineUsers.find(
-                    (user) => user.userID === conversation?.userID
-                  );
-                  var name = conversation?.name;
-                  var nCount = conversation.notificationCount;
-                  var seen = conversation?.notification[0]?.seen;
-                  return (
-                    <div
-                      className="col-12 normal-box p-3"
-                      onClick={() => handleConversation(conversation, name)}
-                      style={{
-                        backgroundColor:
-                          chatID === conversation.chatID ? "lightgreen" : "",
-                        borderRadius: "0px",
-                        cursor: "pointer",
-                        fontWeight: "bold",
-                      }}
-                    >
-                      <div className="container-fluid">
-                        <div className="row">
-                          <div className="col-2">
-                            <img
-                              src={userIcon}
-                              width={50}
-                              height={40}
-                              alt="..."
-                            />
-                          </div>
-                          <div className="col-10">
-                            <div className="container-fluid">
-                              <div className="row">
-                                <div className="col-12">
-                                  {online && (
-                                    <span
-                                      style={{
-                                        backgroundColor: "green",
-                                        border: "6px solid green",
-                                        float: "right",
-                                        borderRadius: "50%",
-                                      }}
-                                    ></span>
-                                  )}
+                    var online = OnlineUsers.find(
+                      (user) => user.userID === conversation?.userID
+                    );
+                    var name = conversation?.name;
+                    var nCount = conversation.notificationCount;
+                    var seen = conversation?.notification[0]?.seen;
+                    return (
+                      <div
+                        className="col-12 normal-box p-3"
+                        onClick={() => handleConversation(conversation, name)}
+                        style={{
+                          backgroundColor:
+                            chatID === conversation.chatID ? "lightgreen" : "",
+                          borderRadius: "0px",
+                          cursor: "pointer",
+                          fontWeight: "bold",
+                        }}
+                      >
+                        <div className="container-fluid">
+                          <div className="row">
+                            <div className="col-2">
+                              <img
+                                src={userIcon}
+                                width={50}
+                                height={40}
+                                alt="..."
+                              />
+                            </div>
+                            <div className="col-10">
+                              <div className="container-fluid">
+                                <div className="row">
+                                  <div className="col-12">
+                                    {online && (
+                                      <span
+                                        style={{
+                                          backgroundColor: "green",
+                                          border: "6px solid green",
+                                          float: "right",
+                                          borderRadius: "50%",
+                                        }}
+                                      ></span>
+                                    )}
 
-                                  {conversation?.name}
-                                  <span
-                                    style={{
-                                      color:
-                                        nCount === 0 || seen ? "grey" : "green",
-                                      padding: "0px 5px",
-                                      float: "right",
-                                    }}
-                                  >
-                                    <small style={{ fontWeight: "bold" }}>
-                                      {formattedDate}
-                                    </small>
-                                  </span>
-                                </div>
-                                <div className="col-12">
-                                  <div>
+                                    {conversation?.name}
                                     <span
                                       style={{
                                         color:
@@ -329,30 +352,48 @@ export default function ChatRoom() {
                                             ? "grey"
                                             : "green",
                                         padding: "0px 5px",
-                                      }}
-                                    >
-                                      {notification
-                                        ? notification
-                                        : conversation?.notification[0]
-                                            ?.message}
-                                    </span>
-                                    <span
-                                      style={{
-                                        backgroundColor: "green",
-                                        padding: "0px 15px",
-                                        border: "1px solid green",
-                                        color: "white",
                                         float: "right",
-                                        fontWeight: "bold",
-                                        borderRadius: "90%",
                                       }}
                                     >
-                                      {notificationCount
-                                        ? notificationCount
-                                        : nCount === 0
-                                        ? ""
-                                        : nCount}
+                                      <small style={{ fontWeight: "bold" }}>
+                                        {formattedDate}
+                                      </small>
                                     </span>
+                                  </div>
+                                  <div className="col-12">
+                                    <div>
+                                      <span
+                                        style={{
+                                          color:
+                                            nCount === 0 || seen
+                                              ? "grey"
+                                              : "green",
+                                          padding: "0px 5px",
+                                        }}
+                                      >
+                                        {notification
+                                          ? notification
+                                          : conversation?.notification[0]
+                                              ?.message}
+                                      </span>
+                                      <span
+                                        style={{
+                                          backgroundColor: "green",
+                                          padding: "0px 15px",
+                                          border: "1px solid green",
+                                          color: "white",
+                                          float: "right",
+                                          fontWeight: "bold",
+                                          borderRadius: "90%",
+                                        }}
+                                      >
+                                        {notificationCount
+                                          ? notificationCount
+                                          : nCount === 0
+                                          ? ""
+                                          : nCount}
+                                      </span>
+                                    </div>
                                   </div>
                                 </div>
                               </div>
@@ -360,169 +401,174 @@ export default function ChatRoom() {
                           </div>
                         </div>
                       </div>
-                    </div>
-                  );
-                })}
+                    );
+                  })}
+                </div>
               </div>
             </div>
-          </div>
-          <div
-            className="col-8 p-3 mt-3 normal-box"
-            style={{ borderRadius: "0px", height: "70vh" }}
-          >
-            {view ? (
-              <>
-                <h3
+          )}
+          {(!pageState || !isMobile) && (
+            <div
+              className="col-sm-8 col-12 p-3 mt-3 normal-box"
+              style={{ borderRadius: "0px", height: "70vh" }}
+            >
+              {view ? (
+                <>
+                  <h3
+                    style={{
+                      fontWeight: "bold",
+                      fontFamily: "sans-serif",
+                      color: "green",
+                    }}
+                  >
+                    {name} <hr style={{ borderWidth: "3px" }} />
+                  </h3>
+                  <div style={{ height: "47vh", overflow: "auto" }}>
+                    {messages &&
+                      messages.map((message, index) => {
+                        if (message.senderID === a.user._id) {
+                          var Mystyle = {
+                            float: "right",
+                            padding: "5px 10px",
+                            backgroundColor: "rgba(130, 230, 113, 0.844)",
+                            fontWeight: "bold",
+                          };
+                        } else {
+                          var Mystyle = { float: "left", padding: "5px 10px" };
+                        }
+
+                        if (message?.dateStamp) {
+                          const currentDate = new Date();
+                          const messageDate = new Date(message?.dateStamp);
+
+                          if (
+                            currentDate.toDateString() ===
+                            messageDate.toDateString()
+                          ) {
+                            // Message sent today
+                            var formattedDate = messageDate.toLocaleTimeString(
+                              [],
+                              {
+                                hour: "2-digit",
+                                minute: "2-digit",
+                              }
+                            );
+                          } else if (
+                            currentDate.getDate() - messageDate.getDate() ===
+                            1
+                          ) {
+                            // Message sent yesterday
+                            var formattedDate = "Yesterday";
+                          } else if (
+                            currentDate.getDate() - messageDate.getDate() ===
+                            2
+                          ) {
+                            // Message sent day before yesterday
+                            var formattedDate = messageDate.toLocaleDateString(
+                              [],
+                              {
+                                month: "numeric",
+                                day: "numeric",
+                                year: "2-digit",
+                              }
+                            );
+                          } else {
+                            // Message sent on a specific date
+                            var formattedDate = messageDate.toLocaleDateString(
+                              [],
+                              {
+                                month: "numeric",
+                                day: "numeric",
+                                year: "2-digit",
+                              }
+                            );
+                          }
+                        }
+                        return (
+                          <>
+                            <div
+                              className="m-3"
+                              ref={
+                                messages.length - 1 === index
+                                  ? messageRef
+                                  : null
+                              }
+                            >
+                              <div className="button-6" style={Mystyle}>
+                                {message.message} <br />
+                                <span
+                                  style={{
+                                    color: "grey",
+                                    padding: "0px 5px",
+                                    float: "right",
+                                  }}
+                                >
+                                  <small style={{ fontWeight: "bold" }}>
+                                    {formattedDate}
+                                  </small>
+                                </span>
+                              </div>
+                            </div>
+                            <br />
+                          </>
+                        );
+                      })}
+                  </div>
+                  <div style={{ float: "bottom" }}>
+                    <form className="p-4" onSubmit={sendMessage}>
+                      <label htmlFor="password"></label>
+                      <input
+                        className="text-center m-1 button-6"
+                        style={{ width: "40vw" }}
+                        type="text"
+                        name="password"
+                        placeholder="Write a message..."
+                        value={inputMessage}
+                        onChange={onChangeHander}
+                        required
+                      />
+                      <button
+                        type="submit"
+                        style={{
+                          backgroundColor: "green",
+                          color: "white",
+                          fontWeight: "bold",
+                        }}
+                        className="button-6"
+                      >
+                        Send
+                      </button>
+                    </form>
+                  </div>
+                </>
+              ) : (
+                <div
                   style={{
-                    fontWeight: "bold",
-                    fontFamily: "sans-serif",
-                    color: "green",
+                    display: "flex",
+                    flexDirection: "column",
+                    alignItems: "center",
+                    justifyContent: "center",
                   }}
                 >
-                  {name} <hr style={{ borderWidth: "3px" }} />
-                </h3>
-                <div style={{ height: "47vh", overflow: "auto" }}>
-                  {messages &&
-                    messages.map((message, index) => {
-                      if (message.senderID === a.user._id) {
-                        var Mystyle = {
-                          float: "right",
-                          padding: "5px 10px",
-                          backgroundColor: "rgba(130, 230, 113, 0.844)",
-                          fontWeight: "bold",
-                        };
-                      } else {
-                        var Mystyle = { float: "left", padding: "5px 10px" };
-                      }
-
-                      if (message?.dateStamp) {
-                        const currentDate = new Date();
-                        const messageDate = new Date(message?.dateStamp);
-
-                        if (
-                          currentDate.toDateString() ===
-                          messageDate.toDateString()
-                        ) {
-                          // Message sent today
-                          var formattedDate = messageDate.toLocaleTimeString(
-                            [],
-                            {
-                              hour: "2-digit",
-                              minute: "2-digit",
-                            }
-                          );
-                        } else if (
-                          currentDate.getDate() - messageDate.getDate() ===
-                          1
-                        ) {
-                          // Message sent yesterday
-                          var formattedDate = "Yesterday";
-                        } else if (
-                          currentDate.getDate() - messageDate.getDate() ===
-                          2
-                        ) {
-                          // Message sent day before yesterday
-                          var formattedDate = messageDate.toLocaleDateString(
-                            [],
-                            {
-                              month: "numeric",
-                              day: "numeric",
-                              year: "2-digit",
-                            }
-                          );
-                        } else {
-                          // Message sent on a specific date
-                          var formattedDate = messageDate.toLocaleDateString(
-                            [],
-                            {
-                              month: "numeric",
-                              day: "numeric",
-                              year: "2-digit",
-                            }
-                          );
-                        }
-                      }
-                      return (
-                        <>
-                          <div
-                            className="m-3"
-                            ref={
-                              messages.length - 1 === index ? messageRef : null
-                            }
-                          >
-                            <div className="button-6" style={Mystyle}>
-                              {message.message} <br />
-                              <span
-                                style={{
-                                  color: "grey",
-                                  padding: "0px 5px",
-                                  float: "right",
-                                }}
-                              >
-                                <small style={{ fontWeight: "bold" }}>
-                                  {formattedDate}
-                                </small>
-                              </span>
-                            </div>
-                          </div>
-                          <br />
-                        </>
-                      );
-                    })}
+                  <div className="text-center mt-5">
+                    <h1 style={{ color: "green" }}>Helping Hands</h1>
+                    <h3>Chat Room</h3>
+                    <br />
+                    <br />
+                    <p className="p-5">
+                      "Introducing a seamless messaging application that
+                      connects you with your teammates instantly. Enjoy the
+                      convenience of sending and receiving messages on any
+                      device, keeping your communication efficient and
+                      effective. With user-friendly interfaces our messaging app
+                      enhances your communication experience, making staying
+                      connected effortless."
+                    </p>
+                  </div>
                 </div>
-                <div style={{ float: "bottom" }}>
-                  <form className="p-4" onSubmit={sendMessage}>
-                    <label htmlFor="password"></label>
-                    <input
-                      className="text-center m-1 button-6"
-                      style={{ width: "40vw" }}
-                      type="text"
-                      name="password"
-                      placeholder="Write a message..."
-                      value={inputMessage}
-                      onChange={onChangeHander}
-                      required
-                    />
-                    <button
-                      type="submit"
-                      style={{
-                        backgroundColor: "green",
-                        color: "white",
-                        fontWeight: "bold",
-                      }}
-                      className="button-6"
-                    >
-                      Send
-                    </button>
-                  </form>
-                </div>
-              </>
-            ) : (
-              <div
-                style={{
-                  display: "flex",
-                  flexDirection: "column",
-                  alignItems: "center",
-                  justifyContent: "center",
-                }}
-              >
-                <div className="text-center mt-5">
-                  <h1 style={{ color: "green" }}>Helping Hands</h1>
-                  <h3>Chat Room</h3>
-                  <br />
-                  <br />
-                  <p className="p-5">
-                    "Introducing a seamless messaging application that connects
-                    you with your teammates instantly. Enjoy the convenience of
-                    sending and receiving messages on any device, keeping your
-                    communication efficient and effective. With user-friendly
-                    interfaces our messaging app enhances your communication
-                    experience, making staying connected effortless."
-                  </p>
-                </div>
-              </div>
-            )}
-          </div>
+              )}
+            </div>
+          )}
         </div>
       </div>
     </div>

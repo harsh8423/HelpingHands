@@ -2,6 +2,8 @@ const mongoose = require("mongoose");
 const { Schema } = mongoose;
 
 const UserSchema = new mongoose.Schema({
+
+  transactionID:{type: Schema.Types.ObjectId, ref: "transactions"},
   teamRequests:[{
     status:{type: String},
     moto:{type: String},

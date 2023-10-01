@@ -1,0 +1,31 @@
+.name-column {
+    display: flex;
+}
+
+.largemedia{
+    display: block;
+    text-align: justify;
+}
+.smallmedia{
+    display: none;
+    text-align: justify;
+}
+
+.team-column{
+    display: flex;
+    margin: 5px;
+    flex-direction: column;
+}
+.skills{
+    display: flex;
+    flex-wrap: wrap;
+}
+@media only screen and (max-width: 700px) {
+    .largemedia{
+        display: none;
+    }
+    .smallmedia{
+        display: block;
+    }
+
+  }

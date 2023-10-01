@@ -60,13 +60,6 @@ export default function BioUpload(props) {
           position: "relative",
         }}
       >
-        <img
-          style={{ position: "absolute", right: "0px", top: "-30px" }}
-          src={logoIcon}
-          width={160}
-          height={60}
-          alt="..."
-        />
         <p
           style={{
             color: "green",
@@ -80,11 +73,10 @@ export default function BioUpload(props) {
         <form onSubmit={postBio}>
           <div className="text-center mt-4">
             <label htmlFor="title"></label>
-            <textarea
+            <input
               className="text-center m-1 button-6"
               name="title"
-              rows="1"
-              cols="50"
+              
               placeholder="Give Title  to your Work Proffesion"
               value={credentials.title}
               onChange={onChangeHander}
@@ -95,8 +87,8 @@ export default function BioUpload(props) {
             <label htmlFor="bio"></label>
             <textarea
               className="text-center m-1 button-6"
-              rows="6"
-              cols="60"
+              rows="auto"
+              cols="auto"
               name="bio"
               placeholder="Write About Yourself What you want tell to your Clients . . . ."
               value={credentials.bio}
@@ -106,7 +98,6 @@ export default function BioUpload(props) {
           </div>
           <button
             type="submit"
-            style={{ position: "absolute", right: "20px", bottom: "20px" }}
             className="button-55"
           >
             Post

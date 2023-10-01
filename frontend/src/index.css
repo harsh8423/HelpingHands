@@ -12,3 +12,7 @@ code {
     monospace;
     color: rgb(221, 229, 232);
 }
+
+:root{
+  margin: 0px;
+}

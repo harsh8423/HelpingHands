@@ -70,6 +70,8 @@ router.post("/ProjectProposal", async (req, res) => {
       }
       user.proposals? user.proposals.push(proposal):user.proposals= proposal
       await user.save();
+      res.json({ success:true });
+
     }else{
         res.json({ success:false });
     }

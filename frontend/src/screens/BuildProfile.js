@@ -14,7 +14,7 @@ export default function BuildProfile() {
   return (
     <div>
         <UserNavbar/>
-      <div className="container mt-5">
+      <div className="container-fluid mt-5 " style={{width:"80vw"}}>
         <h1 style={{fontWeight:"bold"}}>Build Profile</h1>
         <hr />
         {pageState === "" ? (
@@ -22,28 +22,28 @@ export default function BuildProfile() {
             <div
             style={{border:"2px solid green", cursor:"pointer"}}
               onClick={() => handlePage("Upload Project")}
-              className="col-12 normal-box m-2 p-4"
+              className="col-12 mt-2 normal-box p-4"
             >
               <h3>Upload Project</h3>
             </div>
             <div
             style={{border:"2px solid lightgreen", cursor:"pointer"}}
             onClick={() => handlePage("Upload Certificate")}
-              className="col-12 normal-box m-2 p-4"
+              className="col-12 mt-2 normal-box p-4"
             >
               <h3>Upload Certificate</h3>
             </div>
             <div
             style={{border:"2px solid green", cursor:"pointer"}}
             onClick={() => handlePage("Add Achievements")}
-              className="col-12 normal-box m-2 p-4"
+              className="col-12 mt-2 normal-box p-4"
             >
               <h3>Add Achievements</h3>
             </div>
             <div
             style={{border:"2px solid lightgreen", cursor:"pointer"}}
             onClick={() => handlePage("Add Bio")}
-              className="col-12 normal-box m-2 p-4"
+              className="col-12 normal-box mt-2 p-4"
             >
               <h3>Add Bio</h3>
             </div>

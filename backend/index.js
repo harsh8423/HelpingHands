@@ -76,7 +76,7 @@ const cors = require("cors");
 // Set up CORS middleware
 app.use(
   cors({
-    origin: "https://helping-hands-two.vercel.app", // Only allow requests from this origin
+    origin: "http://localhost:3000", // Only allow requests from this origin
     methods: ["GET", "POST", "PUT", "DELETE"], // Only allow specified HTTP methods
   })
 );
@@ -96,6 +96,7 @@ app.use("/api", require("./routes/Connects"));
 app.use("/api", require("./routes/chatRoom"));
 app.use("/api", require("./routes/teamRoutes"));
 app.use("/api", require("./routes/transactions"));
+app.use("/api", require("./routes/bugs"));
 
 // Define a test route
 app.get("/", async (req, res) => {

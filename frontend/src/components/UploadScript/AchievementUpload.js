@@ -65,13 +65,6 @@ export default function AchievementUpload(props) {
           position: "relative",
         }}
       >
-        <img
-          style={{ position: "absolute", right: "0px", top: "-30px" }}
-          src={logoIcon}
-          width={160}
-          height={60}
-          alt="..."
-        />
         <p
           style={{
             color: "green",
@@ -85,11 +78,9 @@ export default function AchievementUpload(props) {
         <form onSubmit={postAchievement}>
           <div className="text-center mt-4">
             <label htmlFor="title"></label>
-            <textarea
+            <input
               className="text-center m-1 button-6"
               name="title"
-              rows="1"
-              cols="50"
               placeholder="Achievement Title"
               value={credentials.title}
               onChange={onChangeHander}
@@ -112,8 +103,8 @@ export default function AchievementUpload(props) {
             <label htmlFor="description"></label>
             <textarea
               className="text-center m-1 button-6"
-              rows="6"
-              cols="60"
+              rows="auto"
+              cols="auto"
               name="description"
               placeholder="Write few words about the achievement you have got. . . ."
               value={credentials.description}

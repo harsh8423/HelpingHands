@@ -11,11 +11,14 @@ import addicon from "../images/addition.png";
 import meeticon from "../images/meet.png";
 import addmembericon from "../images/social.png";
 import TeamProjects from "./TeamProjects";
-
+import "./teamRoom.css"
 import { useNavigate } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 
 export default function TeamRoom() {
+
+  const isMobile = window.innerWidth <= 700; // Adjust the breakpoint as needed
+
   const a = useContext(ContextApi);
   let navigate = useNavigate();
   const location = useLocation();
@@ -29,6 +32,7 @@ export default function TeamRoom() {
   const [pageState, setpageState] = useState("Projects");
   const [inputMessage, setinputMessage] = useState("");
   const [postproject, setpostproject] = useState("Projects");
+  const [chatPage, setchatPage] = useState(false)
 
   const scrollToBottom = () => {
     messageRef.current.scrollIntoView({
@@ -131,9 +135,12 @@ export default function TeamRoom() {
 
   const togglepage = () => {
     if (pageState === "Projects") {
+      setchatPage(false)
       setpageState("Team Detail");
     } else {
+      setchatPage(false)
       setpageState("Projects");
+
     }
   };
 
@@ -151,19 +158,9 @@ export default function TeamRoom() {
       <div className="container-fluid">
         <div className="row">
           <div
-            className="col-8 m-1 p-4 divWith snowflakes"
+            className="col-sm-8 col-12 m-1 p-4 divWith "
             style={{ backgroundColor: "lightblue" }}
           >
-            <div className="snowflake">❅</div>
-            <div className="snowflake">❅</div>
-            <div className="snowflake">❆</div>
-            <div className="snowflake">❄</div>
-            <div className="snowflake">❅</div>
-            <div className="snowflake">❆</div>
-            <div className="snowflake">❄</div>
-            <div className="snowflake">❅</div>
-            <div className="snowflake">❆</div>
-            <div className="snowflake">❄</div>
             <h1
               style={{
                 color: "red",
@@ -185,7 +182,8 @@ export default function TeamRoom() {
               {team?.teamLeader?.personalInfo[0]?.name}
             </p>{" "}
           </div>
-          <div className="col-1 m-1 p-4 text-center">
+          <div className="menu col-sm-3 col-12">
+          <div className="m-1 p-4 text-center">
             <img src={meeticon} width={60} height={60} alt="..." />
             <div style={{ fontWeight: "bold", fontSize: "12px" }}>
               Create Meet
@@ -197,28 +195,32 @@ export default function TeamRoom() {
               setpostproject("Back to Projects");
             }}
             style={{ cursor: "pointer" }}
-            className="col-1 m-1 p-4 text-center"
+            className="m-1 p-4 text-center"
           >
             <img src={addicon} width={60} height={60} alt="..." />
             <div style={{ fontWeight: "bold", fontSize: "12px" }}>
               Add Project
             </div>
           </div>
-          <div className="col-1 m-1 p-4 text-center">
+          <div className="m-1 p-4 text-center">
             <img src={addmembericon} width={60} height={60} alt="..." />
             <div style={{ fontWeight: "bold", fontSize: "12px" }}>
               Add Member
             </div>
           </div>
+          </div>
         </div>
         <div className="row">
-          <div className="col-6">
-            <div className="">
+          <div className="col-sm-6 col-12">
+            <div className="togglebuttons">
               <button className="button-07 mb-4" onClick={togglepage}>
                 {pageState}
               </button>
+              <button className="button-07 mb-4 chatroombutton" onClick={()=>{setchatPage(true)}}>
+                Chat Room
+              </button>
             </div>
-            {pageState === "Projects" ? (
+            {(pageState === "Projects" && !chatPage) && (
               <div className="container-fluid">
                 <div className="row">
                   <TeamBulletin teamID={team?._id} />
@@ -303,8 +305,9 @@ export default function TeamRoom() {
                   </div>
                 )}
               </div>
-            ) : (
-              <div className="container-fluid">
+             )}
+              {(pageState === "Team Detail" && !chatPage) && (
+                <div className="container-fluid">
                 <div className="row">
                   <div className="col-12">
                     {postproject === "Back to Projects" && (
@@ -325,11 +328,12 @@ export default function TeamRoom() {
                   </div>
                 </div>
               </div>
-            )}
+              )}
           </div>
-          <div
-            className="col-6 p-3 normal-box"
-            style={{ borderRadius: "0px", height: "70vh" }}
+          {(chatPage || !isMobile) && (
+            <div
+            className="col-sm-6 col-12 p-3 normal-box"
+            style={{ borderRadius: "0px", height: "70vh"}}
           >
             <h3
               style={{
@@ -461,6 +465,7 @@ export default function TeamRoom() {
               </form>
             </div>
           </div>
+          )}
         </div>
       </div>
     </div>

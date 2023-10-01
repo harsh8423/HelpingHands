@@ -7,7 +7,11 @@ import { useNavigate } from "react-router-dom";
 export default function MyConnects() {
   const a = useContext(ContextApi);
   const [connects, setconnects] = useState([]);
+  const [requests, setrequests] = useState(false)
   let navigate = useNavigate();
+
+  const isMobile = window.innerWidth <= 700; // Adjust the breakpoint as needed
+
 
   const connectRequest = async () => {
     const response = await fetch("http://localhost:5000/api/Myconnect", {
@@ -74,19 +78,30 @@ export default function MyConnects() {
 
         <div className="row">
           <div
-            className="col-3 mt-5"
+            className="col-sm-3 col-12 mt-1"
             style={{
               borderLeft: "2px solid grey",
               borderRight: "2px solid grey",
             }}
           >
             <div className="container-fluid mt-1">
-              <h4>
+              {isMobile? (
+                <button className="button-6" onClick={()=>{setrequests(true)}}>
+                Connect Request <hr style={{ borderWidth: "3px" }} />
+              </button>
+              ):(
+                <h4 >
                 Connect Request <hr style={{ borderWidth: "3px" }} />
               </h4>
-              <div className="row">
+              )}
+              {(requests || !isMobile) && (
+                <div className="row">
                 {connects.map((connect) => {
                   var status = connect.status;
+                  var count = 0;
+                  if (status !== "requested") {
+                    count += 1;
+                  }
                   var dateObj = new Date(connect.requestDate);
                   var options = {
                     year: "numeric",
@@ -100,7 +115,7 @@ export default function MyConnects() {
                   var user = connect.userID;
                   return (
                     <>
-                      {status === "requested" ? (
+                      {status === "requested" && (
                         <>
                           <div
                             className="col-12 p-3 mt-3 normal-box "
@@ -169,19 +184,18 @@ export default function MyConnects() {
                             Accept
                           </button>
                         </>
-                      ):(
-                        <div className="col-12">
-                          "No Pending Request"
-                        </div>
-                      )
-                    }
+                      )}
+                      {count && (
+                        <div className="col-12">No Pending Request</div>
+                      )}
                     </>
                   );
                 })}
               </div>
+              )}
             </div>
           </div>
-          <div className="col-9">
+          <div className="col-sm-9 col-12">
             <div className="container-fluid mt-1">
               <div className="row">
                 {connects.map((connect) => {
@@ -193,13 +207,13 @@ export default function MyConnects() {
                       {status === "accepted" && (
                         <>
                           <div
-                            className="col-3 p-3 m-2 normal-box "
-                            style={{ borderRadius: "0px", height: "80px" }}
+                            className="col-sm-3 col-12 p-3 m-2 normal-box "
+                            style={{ borderRadius: "0px", height: "" }}
                           >
                             <p>
                               <span
                                 style={{
-                                  fontSize: "14px",
+                                  fontSize: "17px",
                                   fontWeight: "bold",
                                   color: "green",
                                 }}
@@ -230,23 +244,25 @@ export default function MyConnects() {
                               </span>{" "}
                             </p>
                             <div>
-                            <button
-                            onClick={() => {
-                              navigate("../ChatRoom", { state: connect.userID._id });
-                            }}
-                              className="button-6"
-                              style={{ borderRadius: "0px" }}
-                            >
-                              Message
-                            </button>
-                            <button
-                              className="button-6"
-                              style={{
-                                borderRadius: "0px",
-                              }}
-                            >
-                              Invite
-                            </button>
+                              <button
+                                onClick={() => {
+                                  navigate("../ChatRoom", {
+                                    state: connect.userID._id,
+                                  });
+                                }}
+                                className="button-6"
+                                style={{ borderRadius: "0px" }}
+                              >
+                                Message
+                              </button>
+                              <button
+                                className="button-6"
+                                style={{
+                                  borderRadius: "0px",
+                                }}
+                              >
+                                Invite
+                              </button>
                             </div>
                           </div>
                         </>

@@ -13,9 +13,10 @@ import teamIcon from "../images/group.png";
 import back from "../images/R.jpg";
 import Filters from "../ApiAndComponent/Filters";
 import { toast, Toaster } from "react-hot-toast";
-
+import "./publicView.css"
 
 export default function PublicViewProfilePage() {
+  const isMobile = window.innerWidth <= 700; // Adjust the breakpoint as needed
 
   const a = useContext(ContextApi);
   const location = useLocation();
@@ -150,19 +151,20 @@ export default function PublicViewProfilePage() {
       <Toaster toastOptions={{ duration: 4000 }} />
 
       <div
-        className="container mt-5 mb-5 p-4"
+        className="container mt-4 mb-4 p-4"
       >
         <div className="row">
           <div className="col-12">
             <div className="container">
-              <div className="row">
-                <div className="col-1">
+              <div className="row ">
+                <div className="col-7 name-column">
                   <img src={userIcon} width={100} height={60} alt="..." />
-                </div>
-                <div className="col-6">
-                  <div style={{ fontSize: "30px", fontWeight: "bold" }}>
+                
+                  <div>
+                  <div style={{ fontSize: "2.3vmax", fontWeight: "bold" }}>
                     {user.personalInfo[0].name}
                   </div>
+                  
                   <span
                   onClick={connectButton==="+ connect"? connectRequest:cliked}
                     className="col-2 text-center"
@@ -192,8 +194,9 @@ export default function PublicViewProfilePage() {
                   >
                     Message
                   </span>
+                  </div>
                 </div>
-                <div className="col-4 text-center">
+                <div className="col-sm-4 mt-3 col-12 text-center">
                   <div
                     className="container-fluid normal-box "
                     style={{
@@ -202,24 +205,20 @@ export default function PublicViewProfilePage() {
                       backgroundSize: "cover",
                     }}
                   >
-                    <div className="row">
-                      <div className="col-3">
-                        <img src={teamIcon} width={60} height={60} alt="..." />
-                      </div>
-                      <div className="col-5 p-3">
+                    <div className="row text-center team-column">
                         <h4
-                          style={{ fontFamily: "cursive", fontWeight: "bold" }}
+                          style={{ fontFamily: "cursive", fontWeight: "bold", fontSize:"2vmax" }}
                         >
                           {user.team? user.team.teamName: a.user.team? <span onClick={handleAddToTeam}>Add to Team</span>:<span>Yet to join the team</span>}
                         </h4>
-                      </div>
-                      <p
-                        className=""
+                      {!user.team && (
+                        <p
                         style={{ fontWeight: "bolder", color: "white" }}
                       >
-                        {user.team? user.team.moto:<>Your team awaits – let's create something extraordinary
+                        {user.team? "":<>Your team awaits – let's create something extraordinary
                         together!"</>}
                       </p>
+                      )}
                     </div>
                   </div>
                 </div>
@@ -227,14 +226,16 @@ export default function PublicViewProfilePage() {
             </div>
             <hr style={{ borderWidth: "3px" }} />
           </div>
-          <div className="col-4" style={{ height: "auto" }}>
+
+
+          <div className="col-sm-4 col-12" style={{ height: "auto" }}>
             <div className="container-fluid m-0 p-0">
               <div className="row">
                 <div
                   className="col-12 text-center"
                   style={{
                     fontWeight: "bold",
-                    fontSize: "25px",
+                    fontSize: "2.5vmax",
                     cursor: "pointer",
                     fontFamily: "serif",
                     color: "blue",
@@ -242,7 +243,7 @@ export default function PublicViewProfilePage() {
                   // onClick={() => window.open(pdfFilePath, "_blank")}
                   download="resume"
                 >
-                  <img src={resumeIcon} width={60} height={50} alt="..." />{" "}
+                  {!isMobile && <img src={resumeIcon} width={60} height={50} alt="..." />}
                   RESUME
                   <hr style={{ borderWidth: "3px" }} />
                 </div>
@@ -250,39 +251,48 @@ export default function PublicViewProfilePage() {
                   className="col-12 text-center"
                   style={{
                     fontWeight: "bold",
-                    fontSize: "20px",
+                    fontSize: "2.2vmax",
                     cursor: "pointer",
                     fontFamily: "serif",
                     color: "blue",
                   }}
                   // onClick={() => window.open(portfolioWebURL, "_blank")}
                 >
-                  <img src={webIcon} width={50} height={50} alt="..." />{" "}
+                  {!isMobile && <img src={webIcon} width={50} height={50} alt="..." />}
                   Portfolio Website
                   <hr style={{ borderWidth: "3px" }} />
                 </div>
-                <div className="col-12">
-                  <div className="container-fluid ">
-                    <h3 className="text-center mb-4" style={{fontWeight:"bold", color:"brown"}}>Milestones <hr /></h3>
-                    <Filters history={history}/>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div
-            className="col-8"
-            style={{ borderLeft: "1px solid grey", height: "auto" }}
-          >
-            <div className="container">
-              <div className="row">
-                <div className="col-12">
+                <div className="col-12 smallmedia">
                   <p style={{ fontSize: "30px", fontWeight: "bolder" }}>
                     {user.personalInfo[0].title}
                   </p>
                   <p>{user.personalInfo[0].bio}</p>
                   <hr style={{ borderWidth: "3px" }} />
                 </div>
+                <div className="col-12">
+                  <div className="container-fluid ">
+                    <h3 className="text-center mb-4" style={{fontWeight:"bold", color:"brown"}}>Milestones <hr /></h3>
+                    <Filters history={history}/>
+                    <hr style={{ borderWidth: "3px" }} />
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            className="col-sm-8 col-12"
+          >
+            <div className="container">
+              <div className="row">
+                <div className="col-12 largemedia">
+                  <p style={{ fontSize: "30px", fontWeight: "bolder" }}>
+                    {user.personalInfo[0].title}
+                  </p>
+                  <p>{user.personalInfo[0].bio}</p>
+                  <hr style={{ borderWidth: "3px" }} />
+                </div>
+                
                 <div
                   className="col-12"
                   style={{ fontSize: "30px", fontWeight: "bolder" }}
@@ -311,7 +321,7 @@ export default function PublicViewProfilePage() {
                             cursor: "pointer",
                           }}
                         >
-                          <h1 style={{ color: "green" }}>{project.title}</h1>
+                          <h1 style={{ color: "green", fontSize:"2.2vmax" }}>{project.title}</h1>
                           <div>
                             <span
                               style={{
@@ -334,15 +344,15 @@ export default function PublicViewProfilePage() {
                           </div>
                           <div
                             style={{
-                              width: "500px",
+                              width: "37vmax",
                               height: "auto",
-                              maxHeight: "100px",
                               overflow: "auto",
+                              textAlign:"justify"
                             }}
                           >
                             <span
                               style={{
-                                fontSize: "20px",
+                                fontSize: "1.9vmax",
                                 fontWeight: "bold",
                                 color: "blueviolet",
                               }}
@@ -351,22 +361,23 @@ export default function PublicViewProfilePage() {
                             </span>
                             <span
                               style={{
-                                fontSize: "18px",
+                                fontSize: "1.5vmax",
                               }}
                             >
                               {project.description}
                             </span>
                           </div>
-                          <h5
+                          <p
                             className="text-center"
                             style={{
                               textDecoration: "underline",
                               color: "blue",
+                              fontSize:"1.7vmax"
                             }}
                           >
                             Know more
-                          </h5>
-                          <div style={{ fontSize: "50px" }}>...</div>
+                          </p>
+                          <div style={{ fontSize: "2vmax" }}>swipe{"--->"}</div>
                         </SwiperSlide>
                       );
                     })}
@@ -377,6 +388,7 @@ export default function PublicViewProfilePage() {
                   <p style={{ fontSize: "30px", fontWeight: "bolder" }}>
                     Skills
                   </p>
+                  <div className="skills">
                   {skilled.map((skill) => {
                     return (
                       <span
@@ -394,7 +406,7 @@ export default function PublicViewProfilePage() {
                       </span>
                     );
                   })}
-                  <hr style={{ borderWidth: "3px" }} />
+                  </div>
                 </div>
               </div>
             </div>
@@ -403,13 +415,12 @@ export default function PublicViewProfilePage() {
             <hr style={{ borderWidth: "3px" }} />
           </div>
           <div
-            className="col-6"
-            style={{ borderRight: "1px solid grey", height: "auto" }}
+            className="col-sm-6 col-12"
           >
             <div className="container-fluid">
               <div className="row">
                 <div
-                  className="col-12"
+                  className="col-12 mt-3"
                   style={{ fontSize: "30px", fontWeight: "bolder" }}
                 >
                   Certification
@@ -478,11 +489,11 @@ export default function PublicViewProfilePage() {
               </div>
             </div>
           </div>
-          <div className="col-6">
+          <div className="col-sm-6 col-12">
             <div className="container-fluid">
               <div className="row">
                 <div
-                  className="col-12"
+                  className="col-12 mt-3"
                   style={{ fontSize: "30px", fontWeight: "bolder" }}
                 >
                   Achievements

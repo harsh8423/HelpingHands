@@ -3,9 +3,12 @@ import ContextApi from "../ApiAndComponent/ContextApi";
 import { useLocation } from "react-router-dom";
 import UserNavbar from "../ApiAndComponent/UserNavbar";
 import budgetIcon from "../images/money-bag.png";
+import { toast, Toaster } from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
 
 export default function ProjectProposal() {
   const a = useContext(ContextApi);
+  let navigate = useNavigate();
 
   const location = useLocation();
   const id = location.state;
@@ -39,6 +42,10 @@ export default function ProjectProposal() {
     console.log(json);
     if (json.success) {
       console.log("saved");
+      toast.success("applied succesfully")
+      setTimeout(() => {
+        navigate("../UserPage")
+      }, 2000);
     
     }
 
@@ -61,6 +68,8 @@ export default function ProjectProposal() {
   return (
     <div>
       <UserNavbar />
+      <Toaster toastOptions={{ duration: 4000 }} />
+
       <div className="container mt-5">
         <h2>Project Proposal</h2>
         <hr style={{ borderWidth: "2px", color: "grey" }} />
@@ -77,7 +86,7 @@ export default function ProjectProposal() {
               <textarea
                 className="text-center m-1 button-6"
                 rows="20"
-                cols="100"
+                cols="30"
                 name="coverLetter"
                 placeholder="Write About the project Contract including Important Detail related to the Project"
                 value={credentials.coverLetter}

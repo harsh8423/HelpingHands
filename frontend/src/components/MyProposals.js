@@ -87,7 +87,7 @@ export default function MyProposals() {
                   if (request.proposalID == userID) {
                     return (
                       <div
-                        className="col-12 p-5"
+                        className="col-12 p-2"
                         style={{
                             width:"auto",
                           border: "2px solid grey",
@@ -168,7 +168,7 @@ export default function MyProposals() {
                           >
                             {request.status}
                           </span>
-                          <span className="m-4" style={{ float: "right" }}>
+                          <span className="" >
                             <button className="button-6" onClick={() => {
                               navigate("../ChatRoom", { state: project.creater });
                             }}>Message</button>

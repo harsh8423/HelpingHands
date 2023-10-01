@@ -1,0 +1,44 @@
+.home-button{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.home-button div{
+    width: 17vmax;
+    /* max-width: 17vmax; */
+    margin-bottom: 10px;
+    transition: all .2s ease-in-out;
+}
+
+.home-button div:hover{
+    transform: scale(1.1);
+}
+
+.normal-box{
+    padding: 10px;
+}
+
+#para2{
+    display: none;
+}
+
+@media only screen and (max-width: 600px) {
+    .home-button{
+        /* margin: 5px 5px; */
+        justify-content: space-evenly;
+    }
+
+    .welcomeimg{
+        display: none;
+    }
+    #para{
+        display: none;
+    }
+    #para2{
+        display: block;
+    }
+    .arrow{
+        display: none;
+    }
+  }
