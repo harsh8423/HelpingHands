@@ -155,7 +155,7 @@ export default function UserPage() {
   return (
     <div>
       <UserNavbar />
-      <Toaster toastOptions={{ duration: 4000 }} />
+      <Toaster toastOptions={{ duration: 2000 }} />
       <div className="container-fluid homeBanner">
         <HomeBanner />
       </div>

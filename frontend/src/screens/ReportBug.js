@@ -2,10 +2,13 @@ import React, { useState, useContext } from "react";
 import ContextApi from "../ApiAndComponent/ContextApi";
 import UserNavbar from "../ApiAndComponent/UserNavbar";
 import { toast, Toaster } from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
 
 
 export default function ProjectUploadScript() {
     const a = useContext(ContextApi);
+    let navigate = useNavigate();
+
   const [credentials, setcredentials] = useState({
     name: "",
     email: "",
@@ -37,8 +40,11 @@ export default function ProjectUploadScript() {
     const json = await response.json();
     console.log(json);
     if (json.success) {
-      console.log("bug reported")
       toast.success("Bug reported");
+      console.log("bug reported")
+      setTimeout(() => {
+        navigate("../UserPage")
+      }, 1500);
     }
 
     if (!json.success) {
@@ -49,6 +55,7 @@ export default function ProjectUploadScript() {
   return (
     <>
     <UserNavbar/>
+    <Toaster toastOptions={{ duration: 2000 }} />
     <div
       className="normal-box mt-5 p-5 text-center"
       style={{
