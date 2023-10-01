@@ -33,7 +33,7 @@ export default function UserPage() {
   });
 
   const contract = async () => {
-    const response = await fetch("http://localhost:5000/api/contracts", {
+    const response = await fetch("https://helping-hands-api.vercel.app/api/contracts", {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -69,7 +69,7 @@ export default function UserPage() {
   const handleSkills = async (searchableName) => {
     const pid = searchableName? searchableName.value:id;
     if (true) {
-      const response = await fetch("http://localhost:5000/api/profileView", {
+      const response = await fetch("https://helping-hands-api.vercel.app/api/profileView", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -125,7 +125,7 @@ export default function UserPage() {
   };
 
   const handlefilter = async (e) => {
-    const response = await fetch("http://localhost:5000/api/filterProject", {
+    const response = await fetch("https://helping-hands-api.vercel.app/api/filterProject", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

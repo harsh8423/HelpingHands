@@ -76,7 +76,7 @@ const cors = require("cors");
 // Set up CORS middleware
 app.use(
   cors({
-    origin: "http://localhost:3000", // Only allow requests from this origin
+    origin: "https://helping-hands-two.vercel.app", // Only allow requests from this origin
     methods: ["GET", "POST", "PUT", "DELETE"], // Only allow specified HTTP methods
   })
 );

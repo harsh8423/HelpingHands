@@ -1,7 +1,7 @@
 const cors = require("cors");
 const io = require("socket.io")(8080, {
   cors: {
-    origin: "http://localhost:3000", // Allow connections from this origin
+    origin: "https://helping-hands-two.vercel.app", // Allow connections from this origin
   },
 });
 console.log("started")
