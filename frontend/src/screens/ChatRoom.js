@@ -38,7 +38,7 @@ export default function ChatRoom() {
   console.log("messeges after online users", messages);
 
   useEffect(() => {
-    setsocket(io("http://localhost:8080"));
+    setsocket(io("https://helpinghands-frontend.onrender.com"));
   }, []);
 
   useEffect(() => {
