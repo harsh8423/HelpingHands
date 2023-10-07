@@ -81,6 +81,12 @@ app.use(
   })
 );
 
+app.use(
+  cors({
+    origin: "http://localhost:3000", // Only allow requests from this origin
+    methods: ["GET", "POST", "PUT", "DELETE"], // Only allow specified HTTP methods
+  })
+);
 // Parse JSON requests
 app.use(express.json());
 
