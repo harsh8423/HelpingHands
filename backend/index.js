@@ -74,19 +74,19 @@ const cors = require("cors");
 // });
 
 // Set up CORS middleware
-app.use(
-  cors({
-    origin: "https://helping-hands-two.vercel.app", // Only allow requests from this origin
-    methods: ["GET", "POST", "PUT", "DELETE"], // Only allow specified HTTP methods
-  })
-);
+const allowedOrigins = [
+  "https://helping-hands-two.vercel.app",
+  "http://localhost:3000",
+  // Add more origins as needed
+];
 
 app.use(
   cors({
-    origin: "http://localhost:3000", // Only allow requests from this origin
-    methods: ["GET", "POST", "PUT", "DELETE"], // Only allow specified HTTP methods
+    origin: allowedOrigins,
+    methods: ["GET", "POST", "PUT", "DELETE"],
   })
 );
+
 // Parse JSON requests
 app.use(express.json());
 
