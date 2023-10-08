@@ -4,6 +4,10 @@
     flex-wrap: wrap;
 }
 
+.homeBanner{
+    height: 18vmax;
+}
+
 .home-button div{
     width: 17vmax;
     /* max-width: 17vmax; */
