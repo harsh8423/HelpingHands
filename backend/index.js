@@ -76,7 +76,6 @@ const cors = require("cors");
 // Set up CORS middleware
 const allowedOrigins = [
   "https://www.skillmingle.co",
-  "https://skillmingle.co",
   "https://helping-hands-two.vercel.app",
   "http://localhost:3000",
   // Add more origins as needed
